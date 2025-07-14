@@ -70,6 +70,8 @@
             box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
             transition: transform 0.1s ease;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -89,6 +91,11 @@
         .card p {
             color: #666;
             margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .card-buttons {
+            margin-top: auto;
         }
 
         .btn {
@@ -153,7 +160,7 @@
             <div class="card">
                 <h2>About Me</h2>
                 <p>Hello there! My name is Tolga Eren Akdemir. I'am a full time indie game developer and network technician.</p>
-                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <div class="card-buttons" style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <a href="resume.html" class="btn">My Resume</a>
                 </div>
             </div>
@@ -161,7 +168,7 @@
             <div class="card">
                 <h2>My Projects</h2>
                 <p>This is my first project. Over time, I'll add more projects here and expand my portfolio.</p>
-                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <div class="card-buttons" style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <a href="projects.html" class="btn">My Projects</a>
                 </div>
             </div>
@@ -169,7 +176,9 @@
             <div class="card">
                 <h2>Contact</h2>
                 <p>If you'd like to get in touch with me, click the button below. I'm always open to new projects and collaborations!</p>
-                <button class="btn" onclick="toggleContact()">Contact Info</button>
+                <div class="card-buttons">
+                    <button class="btn" onclick="toggleContact()">Contact Info</button>
+                </div>
             </div>
         </div>
 
