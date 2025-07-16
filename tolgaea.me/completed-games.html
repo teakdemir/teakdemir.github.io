@@ -65,11 +65,13 @@
         .game-card {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 0px;
-            border: 3px solid #43e97b;
+            border: 3px solid #667eea;
             padding: 30px;
             box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
             transition: transform 0.1s ease;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .game-card:hover {
@@ -78,12 +80,12 @@
         }
 
         .game-card h3 {
-            color: #43e97b;
+            color: #667eea;
             margin-bottom: 15px;
             font-size: 1.5rem;
             font-family: 'Courier New', monospace;
             font-weight: bold;
-            text-shadow: 2px 2px 0px rgba(67, 233, 123, 0.2);
+            text-shadow: 2px 2px 0px rgba(102, 126, 234, 0.2);
         }
 
         .game-card p {
@@ -92,38 +94,47 @@
             font-family: 'Courier New', monospace;
         }
 
+        .game-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
         .game-info {
             background: #f8f8f8;
-            border: 2px solid #43e97b;
+            border: 2px solid #667eea;
             padding: 15px;
-            margin-bottom: 15px;
             font-size: 0.9rem;
         }
 
         .game-info h4 {
-            color: #43e97b;
+            color: #667eea;
             margin-bottom: 10px;
             font-family: 'Courier New', monospace;
             font-weight: bold;
             text-transform: uppercase;
         }
 
-        .game-sections {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
+        .game-info p {
+            margin: 0;
+            margin-bottom: 5px;
+        }
+
+        .game-info p:last-child {
+            margin-bottom: 0;
         }
 
         .platform-section {
             background: #f8f8f8;
-            border: 2px solid #43e97b;
+            border: 2px solid #667eea;
             padding: 15px;
             font-size: 0.9rem;
         }
 
         .platform-section h4 {
-            color: #43e97b;
+            color: #667eea;
             margin-bottom: 10px;
             font-family: 'Courier New', monospace;
             font-weight: bold;
@@ -132,7 +143,7 @@
 
         .platform-badge {
             display: inline-block;
-            background: #43e97b;
+            background: #667eea;
             color: white;
             padding: 4px 12px;
             border: 2px solid #333;
@@ -145,7 +156,7 @@
         }
 
         .btn {
-            background: #43e97b;
+            background: #667eea;
             color: white;
             border: 3px solid #fff;
             padding: 10px 20px;
@@ -156,9 +167,9 @@
             font-weight: bold;
             transition: all 0.1s ease;
             text-decoration: none;
-            display: inline-block;
-            margin-right: 10px;
-            margin-bottom: 10px;
+            display: block;
+            margin: 0 auto;
+            width: fit-content;
             box-shadow: 3px 3px 0px #333;
             text-transform: uppercase;
         }
@@ -166,7 +177,7 @@
         .btn:hover {
             transform: translate(-2px, -2px);
             box-shadow: 5px 5px 0px #333;
-            background: #38f9d7;
+            background: #764ba2;
         }
 
         .btn-back {
@@ -184,14 +195,18 @@
 
         .add-game-placeholder {
             background: rgba(255, 255, 255, 0.5);
-            border: 3px dashed #43e97b;
+            border: 3px dashed #667eea;
             padding: 60px 30px;
             text-align: center;
-            color: #43e97b;
+            color: #667eea;
             font-family: 'Courier New', monospace;
             font-weight: bold;
             text-transform: uppercase;
             font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
         }
 
         footer {
@@ -221,7 +236,7 @@
     <div class="container">
         <header>
             <h1>Completed Games</h1>
-            <p class="subtitle">My released games to date</p>
+            <p class="subtitle">My released indie game portfolio</p>
         </header>
 
         <div class="games-grid">
@@ -229,16 +244,18 @@
             <div class="game-card">
                 <h3>Legacy Chronicles</h3>
                 <p>The first game developed by our community using Godot. A space combat game featuring both story mode with cinematic sequences and survival mode with endless enemy waves. Includes upgrade system and multiple enemy types.</p>
-                
+                <p> </p>
+                    <p> </p>
+                        
+                            
                 <div class="game-sections">
                     <div class="game-info">
                         <h4>Project Details</h4>
-                        <p><strong>Genre:</strong> Space Combat / Action</p>
+                        <p><strong>Genre:</strong> Space Combat / Action / Shoot' em up</p>
                         <p><strong>Development Role:</strong> Movement, Dash, Combat & Upgrade Systems</p>
                         <p><strong>Engine:</strong> Godot</p>
                         <p><strong>Features:</strong> Story Mode, Survival Mode, Upgrade System</p>
                     </div>
-
                     <div class="platform-section">
                         <h4>Platforms</h4>
                         <span class="platform-badge">PC</span>
@@ -252,7 +269,8 @@
             <div class="game-card">
                 <h3>Project: Bitler</h3>
                 <p>A top-down 2D shooter developed with Atilim Game Developers Club. Fusion between Terminator and Conquest of Istanbul themes. Team project with 7 members where I handled coding, map design, and team leadership.</p>
-                
+                <p> </P>
+                    <p> </P>
                 <div class="game-sections">
                     <div class="game-info">
                         <h4>Project Details</h4>
