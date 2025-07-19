@@ -1,0 +1,23 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="64" height="64" fill="#667eea" stroke="#333" stroke-width="3"/>
+  <rect x="6" y="6" width="52" height="52" fill="#764ba2" stroke="#fff" stroke-width="2"/>
+  
+  <!-- Email envelope based on your reference -->
+  <g transform="translate(10, 18)">
+    <!-- Main envelope rectangle -->
+    <rect x="0" y="0" width="44" height="28" fill="#fff" stroke="#333" stroke-width="2" rx="4"/>
+    
+    <!-- Envelope flap lines -->
+    <path d="M2 2 L22 16 L42 2" stroke="#667eea" stroke-width="3" fill="none" stroke-linecap="square"/>
+    <path d="M2 2 L2 26" stroke="#764ba2" stroke-width="2"/>
+    <path d="M42 2 L42 26" stroke="#764ba2" stroke-width="2"/>
+    <path d="M2 26 L42 26" stroke="#764ba2" stroke-width="2"/>
+    
+    <!-- Corner details for pixelated look -->
+    <rect x="0" y="0" width="4" height="4" fill="#667eea"/>
+    <rect x="40" y="0" width="4" height="4" fill="#667eea"/>
+    <rect x="0" y="24" width="4" height="4" fill="#667eea"/>
+    <rect x="40" y="24" width="4" height="4" fill="#667eea"/>
+  </g>
+</svg>

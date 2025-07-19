@@ -138,6 +138,34 @@
             font-family: 'Courier New', monospace;
         }
 
+        /* Heart click animation styles */
+        .floating-image {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 1000;
+            transition: all 2s ease-out;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        .floating-image.animate {
+            opacity: 0;
+            transform: translateY(-100px) scale(1.2);
+        }
+
+        .heart-clickable {
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        .heart-clickable:hover {
+            transform: scale(1.1);
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -145,6 +173,11 @@
             
             .card {
                 padding: 20px;
+            }
+
+            .contact-icons {
+                flex-direction: column;
+                gap: 15px;
             }
         }
     </style>
@@ -177,36 +210,48 @@
                 <h2>Contact</h2>
                 <p>If you'd like to get in touch with me, click the button below. I'm always open to new projects and collaborations!</p>
                 <div class="card-buttons">
-                    <button class="btn" onclick="toggleContact()">Contact Info</button>
+                    <a href="contact.html" class="btn">Contact Me</a>
                 </div>
             </div>
         </div>
 
         <footer>
             <p>&copy; 2025 tolgaea.me. All rights reserved.</p>
-            <p>Made with ❤️ using JavaScript</p>
+            <p>Made with <span class="heart-clickable" onclick="createFloatingImage()">❤️</span> by an indie game developer</p>
         </footer>
     </div>
 
     <script>
-        // Toggle contact information
-        function toggleContact() {
-            const contactInfo = document.getElementById('contact-info');
+        // Create floating heart images
+        function createFloatingImage() {
+            // Random image number between 1-5
+            const imageNumber = Math.floor(Math.random() * 5) + 1;
             
-            if (contactInfo) {
-                contactInfo.remove();
-            } else {
-                const contactDiv = document.createElement('div');
-                contactDiv.id = 'contact-info';
-                contactDiv.innerHTML = `
-                    <div style="margin-top: 15px; padding: 15px; background: #f0f0f0; border-radius: 10px;">
-                        <p><strong>Email:</strong> <a href="mailto:takdemirbusiness@gmail.com" style="color: #667eea; text-decoration: none;">takdemirbusiness@gmail.com</a></p>
-                        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tolga-eren-akdemir-1b9021266/" target="_blank" style="color: #667eea; text-decoration: none;">LinkedIn Profile</a></p>
-                        <p><strong>GitHub:</strong> <a href="https://github.com/teakdemir" target="_blank" style="color: #667eea; text-decoration: none;">GitHub Profile</a></p>
-                    </div>
-                `;
-                event.target.closest('.card').appendChild(contactDiv);
-            }
+            // Random position on screen
+            const x = Math.random() * (window.innerWidth - 60);
+            const y = Math.random() * (window.innerHeight - 60);
+            
+            // Create image element
+            const img = document.createElement('img');
+            img.src = `Random/${imageNumber}.jpg`;
+            img.className = 'floating-image';
+            img.style.left = x + 'px';
+            img.style.top = y + 'px';
+            
+            // Add to page
+            document.body.appendChild(img);
+            
+            // Start animation after a tiny delay
+            setTimeout(() => {
+                img.classList.add('animate');
+            }, 10);
+            
+            // Remove from DOM after animation
+            setTimeout(() => {
+                if (img.parentNode) {
+                    img.parentNode.removeChild(img);
+                }
+            }, 2000);
         }
 
         // Code to run when page loads
