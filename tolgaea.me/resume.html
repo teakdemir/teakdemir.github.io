@@ -4,195 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Tolga Eren Akdemir</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Courier New', monospace;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            image-rendering: pixelated;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: crisp-edges;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 0px;
-            border: 3px solid #fff;
-            padding: 20px;
-            margin-bottom: 30px;
-            text-align: center;
-            box-shadow: 0 0 0 3px #667eea;
-        }
-
-        h1 {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-            text-shadow: 3px 3px 0px #333, 6px 6px 0px rgba(0,0,0,0.3);
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-        }
-
-        .subtitle {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.2rem;
-            font-family: 'Courier New', monospace;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
-        }
-
-        .resume-section {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 0px;
-            border: 3px solid #667eea;
-            padding: 30px;
-            margin-bottom: 20px;
-            box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
-        }
-
-        h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            text-shadow: 2px 2px 0px rgba(102, 126, 234, 0.2);
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-
-        h3 {
-            color: #764ba2;
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-        }
-
-        .job-title {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 5px;
-        }
-
-        .job-date {
-            color: #999;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .skill-item {
-            background: #f0f0f0;
-            border: 2px solid #667eea;
-            padding: 15px;
-            text-align: center;
-            font-weight: bold;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-        .skill-item:hover {
-            background: #667eea;
-            color: white;
-            transform: translate(-2px, -2px);
-            box-shadow: 4px 4px 0px #333;
-        }
-
-        /* Heart click animation styles */
-        .floating-image {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            opacity: 0.7;
-            pointer-events: none;
-            z-index: 1000;
-            transition: all 2s ease-out;
-            image-rendering: pixelated;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: crisp-edges;
-        }
-
-        .floating-image.animate {
-            opacity: 0;
-            transform: translateY(-100px) scale(1.2);
-        }
-
-        .heart-clickable {
-            cursor: pointer;
-            transition: transform 0.1s ease;
-        }
-
-        .heart-clickable:hover {
-            transform: scale(1.1);
-        }
-
-        footer {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 0px;
-            border: 3px solid #fff;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            box-shadow: 0 0 0 3px #667eea;
-            font-family: 'Courier New', monospace;
-        }
-
-        .btn {
-            background: #667eea;
-            color: white;
-            border: 3px solid #fff;
-            padding: 12px 24px;
-            border-radius: 0px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            transition: all 0.1s ease;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 3px 3px 0px #333;
-            text-transform: uppercase;
-            margin: 20px auto;
-            display: block;
-            width: fit-content;
-        }
-
-        .btn:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 5px 5px 0px #333;
-            background: #764ba2;
-        }
-
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/resume.css">
 </head>
 <body>
     <div class="container">
@@ -209,25 +22,10 @@
         <div class="resume-section">
             <h2>Education</h2>
             
-            <h3>Atılım University</h3>
-            <div class="job-title">Information Systems Engineering</div>
-            <div class="job-date">2022 - Expected to graduate in 2026 | Current GPA: 2.6</div>
-            
-            <h3>Ankara Fen Koleji</h3>
-            <div class="job-title">High School</div>
-            <div class="job-date">2020 - 2021 | GPA: 87.45</div>
-            
-            <h3>Hürriyet Anadolu Lisesi</h3>
-            <div class="job-title">High School</div>
-            <div class="job-date">2017 - 2020 | GPA: 87.45</div>
-            
-            <h3>Maltepe Ortaokulu</h3>
-            <div class="job-title">Middle School</div>
-            <div class="job-date">2013 - 2017 | GPA: N/A</div>
-            
-            <h3>Yücetepe İlkokulu</h3>
-            <div class="job-title">Elementary School</div>
-            <div class="job-date">2009 - 2013 | GPA: N/A</div>
+            <div class="education-flowchart">
+                <img src="images/edpath2.svg" alt="Education Path Flowchart" class="desktop-svg" />
+                <img src="images/edpath2-mobile.svg" alt="Education Path Flowchart Mobile" class="mobile-svg" />
+            </div>
         </div>
 
         <div class="resume-section">
@@ -243,9 +41,27 @@
                 <li>Learning and implementing new game development technologies</li>
             </ul>
 
-            <h3>Voluntary Network Technician Intern </h3>
+            <h3>Long-term Developer Intern</h3>
             <div class="job-title">Internship</div>
-            <div class="company name">Company Name: 3C1B</div>
+            <div class="company-name">Company: Cybersoft</div>
+            <div class="job-date">07.2025 - Present</div>
+            <ul>
+                <li>Currently working as a developer intern in a long-term position</li>
+                <li>Gaining hands-on experience in software development and industry practices</li>
+            </ul>
+
+            <h3>Mandatory Internship</h3>
+            <div class="job-title">Internship</div>
+            <div class="company-name">Company: 3C1B</div>
+            <div class="job-date">08.2024 - 09.2024</div>
+            <ul>
+                <li>After completing my second year, I was invited back by the company where I had previously done my voluntary internship</li>
+                <li>Building on the skills I had already gained, I set up basic network topologies</li>
+            </ul>
+
+            <h3>Voluntary Network Technician Intern</h3>
+            <div class="job-title">Internship</div>
+            <div class="company-name">Company: 3C1B</div>
             <div class="job-date">07.2023 - 09.2023</div>
             <ul>
                 <li>Installing, configuring, and maintaining network equipment</li>
@@ -253,20 +69,6 @@
                 <li>Ensuring network security and performance optimization</li>
                 <li>Providing technical support to end users</li>
             </ul>
-
-            <h3>Mandatory Internship</h3>
-            <div class="job-title">Internship</div>
-            <div class="company name">Company Name: 3C1B</div>
-            <div class="job-date">08.2024 - 09.2024</div>
-             <ul>
-                <li>After completing my second year, I was invited back by the company where I had previously done my voluntary internship. Building on the skills I had already gained, I set up basic network topologies</li>
-            </ul>
-
-            <h3>Long-term Developer Intern</h3>
-            <div class="job-title">Internship</div>
-            <div class="company name">Company Name: Cybersoft</div>
-            <div class="job-date">07.2025 - Present</div>
-
         </div>
 
         <div class="resume-section">
@@ -287,45 +89,14 @@
             </div>
         </div>
 
-        <a href="index.html" class="btn">← Back to Main Site</a>
+        <a href="index.html" class="btn btn-back">← Back to Main Site</a>
 
         <footer>
-            <p>&copy; 2025 tolgaea.me - Game Development Portfolio</p>
+            <p>&copy; 2025 tolgaea.me - Resume</p>
             <p>Made with <span class="heart-clickable" onclick="createFloatingImage()">❤️</span> by an indie game developer</p>
         </footer>
     </div>
 
-    <script>
-        function createFloatingImage() {
-            // Random image number between 1-5
-            const imageNumber = Math.floor(Math.random() * 5) + 1;
-            
-            // Random position on screen
-            const x = Math.random() * (window.innerWidth - 60);
-            const y = Math.random() * (window.innerHeight - 60);
-            
-            // Create image element
-            const img = document.createElement('img');
-            img.src = `Random/${imageNumber}.jpg`;
-            img.className = 'floating-image';
-            img.style.left = x + 'px';
-            img.style.top = y + 'px';
-            
-            // Add to page
-            document.body.appendChild(img);
-            
-            // Start animation after a tiny delay
-            setTimeout(() => {
-                img.classList.add('animate');
-            }, 10);
-            
-            // Remove from DOM after animation
-            setTimeout(() => {
-                if (img.parentNode) {
-                    img.parentNode.removeChild(img);
-                }
-            }, 2000);
-        }
-    </script>
+    <script src="scripts/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,103 @@
+/* ==========================================
+   TAMAMLANAN OYUNLAR SAYFASI ÖZEL STİLLER
+   ========================================== */
+
+/* Games Grid */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Game Card Stilleri */
+.game-card {
+    padding: 30px;
+    min-height: 500px;
+    border-color: #667eea;
+}
+
+.game-card h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.game-card p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Game Sections */
+.game-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.game-info,
+.platform-section {
+    background: #f8f8f8;
+    border: 2px solid #667eea;
+    padding: 15px;
+    font-size: 0.9rem;
+}
+
+.game-info h4,
+.platform-section h4 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.game-info p {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.game-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* Game Card Buton Hizalama - FIX UYGULANDI */
+.game-card .btn {
+    background: #667eea;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    margin-top: auto;
+}
+
+/* Placeholder Stilleri */
+.add-game-placeholder {
+    background: rgba(255, 255, 255, 0.5);
+    border: 3px dashed #667eea;
+    padding: 60px 30px;
+    text-align: center;
+    color: #667eea;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .game-card {
+        padding: 20px;
+        min-height: 450px;
+    }
+    
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+}

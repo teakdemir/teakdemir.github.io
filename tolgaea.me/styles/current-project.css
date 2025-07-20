@@ -1,0 +1,50 @@
+/* ==========================================
+   MEVCUT PROJE SAYFASI ÖZEL STİLLER
+   ========================================== */
+
+/* Current Project Container */
+.container {
+    max-width: 1000px;
+}
+
+/* Status Badge Özel Stili */
+.project-status.status-development {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* Status Badge Merkezleme */
+.status-center {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Coming Soon Başlık */
+.coming-soon {
+    color: #667eea;
+    font-size: 3rem;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-shadow: 2px 2px 0px rgba(102, 126, 234, 0.2);
+    margin-bottom: 20px;
+}
+
+/* Description Text */
+.description {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-family: 'Courier New', monospace;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .coming-soon {
+        font-size: 2rem;
+    }
+    
+    .content-section {
+        padding: 30px 20px;
+    }
+}
