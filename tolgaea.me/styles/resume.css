@@ -88,7 +88,17 @@
     font-weight: bold;
     transition: all 0.2s ease;
     cursor: default;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+/* Uzun metinli skill'ler için özel sıralama */
+.skill-item:nth-child(5) { order: 9; }  /* Network Administration */
+.skill-item:nth-child(8) { order: 10; } /* Game Design → yanına */
+.skill-item:nth-child(9) { order: 11; } /* Technical Support */
+.skill-item:nth-child(10) { order: 12; } /* Project Management */
 
 /* Hover efekti var ama tıklanamaz - FIX UYGULANDI */
 .skill-item:hover {
