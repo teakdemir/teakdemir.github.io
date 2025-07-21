@@ -1,5 +1,5 @@
 /* ==========================================
-   TOLGAEA.ME - ORTAK STİLLER
+   TOLGAEA.ME - MAIN STYLES (COMPLETE REWRITE)
    ========================================== */
 
 /* Reset CSS */
@@ -9,7 +9,12 @@
     box-sizing: border-box;
 }
 
-/* Ana Body Stilleri */
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Main Body Styles */
 body {
     font-family: 'Courier New', monospace;
     line-height: 1.6;
@@ -23,6 +28,235 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    padding-top: 100px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+/* Navigation Toolbar */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 3px solid #667eea;
+    border-radius: 0px;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar:hover {
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.3);
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+}
+
+.navbar-brand {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #667eea;
+    text-decoration: none;
+    text-shadow: 2px 2px 0px rgba(102, 126, 234, 0.2);
+    transition: all 0.2s ease;
+}
+
+.navbar-brand:hover {
+    color: #764ba2;
+    transform: scale(1.05);
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.navbar-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #f8f8f8;
+    border: 2px solid #667eea;
+    color: #667eea;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.navbar-item:hover::before {
+    left: 100%;
+}
+
+.navbar-item:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+}
+
+.navbar-item.active {
+    background: #667eea;
+    color: white;
+    box-shadow: inset 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+}
+
+.nav-text {
+    text-transform: uppercase;
+}
+
+/* Mobile Toggle */
+.navbar-mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.navbar-mobile-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #667eea;
+    transition: all 0.3s ease;
+}
+
+.navbar-mobile-toggle:hover span {
+    background: #764ba2;
+}
+
+/* Mobile Menu */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1100;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-left: 3px solid #667eea;
+    box-shadow: -6px 0px 0px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    z-index: 1200;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 3px solid #667eea;
+}
+
+.mobile-menu-header h3 {
+    font-family: 'Courier New', monospace;
+    color: #667eea;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #667eea;
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #764ba2;
+    transform: rotate(90deg);
+}
+
+.mobile-menu-items {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mobile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f8f8;
+    border: 2px solid #667eea;
+    color: #667eea;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.mobile-menu-item:hover {
+    background: #667eea;
+    color: white;
+    transform: translateX(-5px);
+}
+
+.mobile-menu-item.active {
+    background: #667eea;
+    color: white;
 }
 
 /* Container */
@@ -30,15 +264,16 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    animation: fadeIn 0.5s ease-out;
 }
 
-/* Header Stilleri */
+/* Header Styles */
 header {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 0px;
     border: 3px solid #fff;
-    padding: 20px;
+    padding: 30px;
     margin-bottom: 30px;
     text-align: center;
     box-shadow: 0 0 0 3px #667eea;
@@ -60,7 +295,7 @@ h1 {
     text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
 }
 
-/* Temel Card Stilleri */
+/* Card Styles */
 .card,
 .project-card,
 .game-card {
@@ -81,7 +316,6 @@ h1 {
     box-shadow: 9px 9px 0px rgba(0,0,0,0.3);
 }
 
-/* Temel Card İçerikleri */
 .card h2,
 .project-card h3,
 .game-card h3 {
@@ -99,7 +333,7 @@ h1 {
     font-family: 'Courier New', monospace;
 }
 
-/* Buton Stilleri */
+/* Button Styles */
 .btn {
     background: #667eea;
     color: white;
@@ -132,14 +366,11 @@ h1 {
     margin: 20px auto;
     display: block;
     width: fit-content;
+    background: #764ba2;
 }
 
-.btn-green {
-    background: #43e97b;
-}
-
-.btn-green:hover {
-    background: #38f9d7;
+.btn-back:hover {
+    background: #667eea;
 }
 
 /* Project Status Badges */
@@ -197,67 +428,6 @@ h1 {
     text-align: center;
 }
 
-.coming-soon,
-.mysterious-title {
-    color: #667eea;
-    font-size: 3rem;
-    font-family: 'Courier New', monospace;
-    font-weight: bold;
-    text-shadow: 2px 2px 0px rgba(102, 126, 234, 0.2);
-    margin-bottom: 20px;
-}
-
-.mysterious-title {
-    margin-bottom: 30px;
-}
-
-.description,
-.mystery-text {
-    color: #666;
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    font-family: 'Courier New', monospace;
-}
-
-.mystery-text {
-    font-style: italic;
-    margin: 30px 0;
-}
-
-/* Placeholder Info Boxes */
-.placeholder-info {
-    background: #f8f8f8;
-    border: 2px solid #667eea;
-    padding: 20px;
-    margin: 20px 0;
-}
-
-.placeholder-info h3 {
-    color: #667eea;
-    margin-bottom: 15px;
-    font-family: 'Courier New', monospace;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.placeholder-info p {
-    color: #666;
-    margin-bottom: 10px;
-}
-
-/* Secret Image */
-.secret-image {
-    max-width: 100%;
-    height: auto;
-    border: 3px solid #667eea;
-    box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
-    margin: 30px auto;
-    display: block;
-    image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
-}
-
 /* Footer */
 footer {
     background: rgba(255, 255, 255, 0.1);
@@ -269,20 +439,19 @@ footer {
     color: white;
     box-shadow: 0 0 0 3px #667eea;
     font-family: 'Courier New', monospace;
+    margin-top: 40px;
 }
 
-/* Heart Animation Stilleri */
+/* Heart Animation */
 .floating-image {
     position: fixed;
     width: 60px;
     height: 60px;
     opacity: 0.7;
     pointer-events: none;
-    z-index: 1000;
+    z-index: 1300;
     transition: all 2s ease-out;
     image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
 }
 
 .floating-image.animate {
@@ -315,7 +484,7 @@ footer {
     font-size: 0.9rem;
     text-transform: uppercase;
     box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
-    z-index: 1000;
+    z-index: 1400;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -328,7 +497,7 @@ footer {
     opacity: 0;
 }
 
-/* Genel Liste Stilleri */
+/* Lists */
 ul {
     margin-left: 20px;
     margin-bottom: 15px;
@@ -338,26 +507,68 @@ li {
     margin-bottom: 8px;
 }
 
-/* Mobile Responsive - Temel */
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        padding-top: 80px;
+    }
+    
+    .navbar {
+        width: calc(100% - 20px);
+        top: 10px;
+    }
+    
+    .navbar-container {
+        padding: 15px 20px;
+    }
+    
+    .navbar-menu {
+        display: none;
+    }
+    
+    .navbar-mobile-toggle {
+        display: flex;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
     h1 {
         font-size: 2rem;
     }
     
     .container {
-        max-width: 900px;
+        padding: 15px;
     }
     
-    .coming-soon,
-    .mysterious-title {
-        font-size: 2rem;
+    header {
+        padding: 20px;
     }
-    
-    .content-section {
-        padding: 30px 20px;
-    }
+}
 
-    .secret-image {
-        max-width: 90%;
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
     }
 }
