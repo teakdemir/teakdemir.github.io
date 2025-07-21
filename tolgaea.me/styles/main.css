@@ -37,7 +37,10 @@ body.loaded {
     opacity: 1;
 }
 
-/* Navigation Toolbar */
+/* ==========================================
+   NAVIGATION TOOLBAR - ICONS CLOSER TO CENTER
+   ========================================== */
+
 .navbar {
     position: fixed;
     top: 20px;
@@ -60,12 +63,23 @@ body.loaded {
 }
 
 .navbar-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
     padding: 15px 30px;
+    gap: 30px; /* Daha az gap - ikonlar merkeze yakın */
 }
 
+/* Left side navigation items - merkeze yakın */
+.navbar-menu-left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end; /* Sağa hizala - merkeze yakın */
+    margin-right: 20px; /* Merkeze daha da yakın */
+}
+
+/* Brand in center */
 .navbar-brand {
     font-family: 'Courier New', monospace;
     font-size: 1.5rem;
@@ -74,6 +88,7 @@ body.loaded {
     text-decoration: none;
     text-shadow: 2px 2px 0px rgba(102, 126, 234, 0.2);
     transition: all 0.2s ease;
+    text-align: center;
 }
 
 .navbar-brand:hover {
@@ -81,6 +96,16 @@ body.loaded {
     transform: scale(1.05);
 }
 
+/* Right side navigation items - merkeze yakın */
+.navbar-menu-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start; /* Sola hizala - merkeze yakın */
+    margin-left: 20px; /* Merkeze daha da yakın */
+}
+
+/* Keep old .navbar-menu for backward compatibility */
 .navbar-menu {
     display: flex;
     gap: 10px;
@@ -140,13 +165,15 @@ body.loaded {
     text-transform: uppercase;
 }
 
-/* Mobile Toggle */
+/* Mobile Toggle - positioned on the right */
 .navbar-mobile-toggle {
     display: none;
     flex-direction: column;
     gap: 4px;
     cursor: pointer;
     padding: 5px;
+    grid-column: 3;
+    justify-self: end;
 }
 
 .navbar-mobile-toggle span {
@@ -531,10 +558,14 @@ li {
     }
     
     .navbar-container {
+        grid-template-columns: 1fr auto auto;
+        gap: 15px;
         padding: 15px 20px;
     }
     
-    .navbar-menu {
+    .navbar-menu,
+    .navbar-menu-left,
+    .navbar-menu-right {
         display: none;
     }
     
@@ -544,6 +575,7 @@ li {
     
     .navbar-brand {
         font-size: 1.2rem;
+        justify-self: start;
     }
     
     h1 {
