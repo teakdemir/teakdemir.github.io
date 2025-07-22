@@ -1,7 +1,7 @@
 # Site
 # tolgaea.me
 
-A personal portfolio website for indie game developer Tolga Eren Akdemir.
+A personal portfolio website for my game projects.
 Got some help from claude.ai
 
 ## 🎮 Features
