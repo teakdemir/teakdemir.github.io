@@ -197,7 +197,7 @@ body.dark-mode .dark-mode-toggle:hover {
 /* Brand in center */
 .navbar-brand {
     font-family: 'Press Start 2P', 'Courier New', monospace;
-    font-size: 1.8rem;
+    font-size: 2.8rem;
     font-weight: bold;
     color: var(--border-primary);
     text-decoration: none;
@@ -1224,4 +1224,29 @@ html *::after {
 /* Sayfa yüklendikten sonra da uygulan */
 body.loaded * {
     font-family: 'Press Start 2P', monospace !important;
+
+    .navbar-brand {
+    font-size: 2.5rem !important; /* BÜYÜK BOYUT */
+    font-weight: bold !important;
+    line-height: 1.2 !important;
+    letter-spacing: 2px !important;
+}
+
+.brand-text {
+    font-size: inherit !important;
+    font-weight: inherit !important;
+}
+
+/* Mobile responsive - EN SON */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 2.2rem !important; /* Mobile'da daha küçük ama hala büyük */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 1.8rem !important; /* Küçük mobile'da da büyük */
+    }
+}
 }
