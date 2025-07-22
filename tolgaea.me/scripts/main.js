@@ -114,16 +114,24 @@ class TolgaeaWebsite {
 
     setActiveNavItem() {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const pageName = currentPage.replace('.html', '');
+        let pageName = currentPage.replace('.html', '');
+        
+        // Handle edge cases
+        if (!pageName || pageName === '' || pageName === 'index') {
+            pageName = 'index';
+        }
+        
+        console.log('Current page:', pageName); // Debug log
         
         // Desktop navbar
         const navItems = document.querySelectorAll('.navbar-item');
         navItems.forEach(item => {
             const itemPage = item.getAttribute('data-page');
-            if (itemPage === pageName || (pageName === '' && itemPage === 'index')) {
+            item.classList.remove('active');
+            
+            if (itemPage === pageName || (pageName === 'index' && itemPage === 'index')) {
                 item.classList.add('active');
-            } else {
-                item.classList.remove('active');
+                console.log('Active navbar item set:', itemPage); // Debug log
             }
         });
         
@@ -131,10 +139,11 @@ class TolgaeaWebsite {
         const mobileItems = document.querySelectorAll('.mobile-menu-item');
         mobileItems.forEach(item => {
             const itemPage = item.getAttribute('data-page');
-            if (itemPage === pageName || (pageName === '' && itemPage === 'index')) {
+            item.classList.remove('active');
+            
+            if (itemPage === pageName || (pageName === 'index' && itemPage === 'index')) {
                 item.classList.add('active');
-            } else {
-                item.classList.remove('active');
+                console.log('Active mobile item set:', itemPage); // Debug log
             }
         });
     }

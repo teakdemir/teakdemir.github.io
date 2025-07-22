@@ -934,3 +934,27 @@ body.dark-mode ul li {
 body.dark-mode strong {
     color: var(--text-primary);
 }
+
+/* ==========================================
+   DARK MODE ACTIVE PAGE FIX - EN SONUNDA
+   ========================================== */
+body.dark-mode .navbar-item.active {
+    background-color: #764ba2 !important;
+    background-image: none !important;
+    background: #764ba2 !important;
+    color: white !important;
+    box-shadow: inset 3px 3px 0px rgba(0,0,0,0.5) !important;
+    border: 2px solid #667eea !important;
+    transform: translateY(-1px) !important;
+}
+
+body.dark-mode .navbar-item.active:hover {
+    background: #764ba2 !important;
+    background-color: #764ba2 !important;
+}
+
+body.dark-mode .mobile-menu-item.active {
+    background: #764ba2 !important;
+    background-color: #764ba2 !important;
+    color: white !important;
+}
