@@ -9,6 +9,15 @@
     box-sizing: border-box;
 }
 
+/* JERSEY15 FONT IMPORT */
+@font-face {
+    font-family: 'Jersey15';
+    src: url('fonts/Jersey15-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Smooth scroll behavior */
 html {
     scroll-behavior: smooth;
@@ -46,7 +55,7 @@ body.dark-mode {
 
 /* Main Body Styles */
 body {
-    font-family: 'Courier New', monospace;
+    font-family: 'Jersey15', 'Courier New', monospace;
     line-height: 1.6;
     color: var(--text-primary);
     background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
@@ -187,14 +196,15 @@ body.dark-mode .dark-mode-toggle:hover {
 
 /* Brand in center */
 .navbar-brand {
-    font-family: 'Courier New', monospace;
-    font-size: 1.5rem;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    font-size: 1.8rem;
     font-weight: bold;
     color: var(--border-primary);
     text-decoration: none;
     text-shadow: 2px 2px 0px rgba(102, 126, 234, 0.2);
     transition: all 0.2s ease;
     text-align: center;
+    line-height: 1.4;
 }
 
 .navbar-brand:hover {
@@ -222,14 +232,15 @@ body.dark-mode .dark-mode-toggle:hover {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 20px;
+    padding: 12px 20px;
     background: var(--bg-primary);
     border: 2px solid var(--border-primary);
     color: var(--border-primary);
     text-decoration: none;
-    font-family: 'Courier New', monospace;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
     transition: all 0.2s ease;
     position: relative;
     overflow: hidden;
@@ -353,7 +364,7 @@ body.dark-mode .navbar-item:hover {
 }
 
 .mobile-menu-header h3 {
-    font-family: 'Courier New', monospace;
+    font-family: 'Jersey15', 'Courier New', monospace;
     color: var(--border-primary);
     font-size: 1.5rem;
     margin: 0;
@@ -390,7 +401,7 @@ body.dark-mode .navbar-item:hover {
     border: 2px solid var(--border-primary);
     color: var(--border-primary);
     text-decoration: none;
-    font-family: 'Courier New', monospace;
+    font-family: 'Jersey15', 'Courier New', monospace;
     font-weight: bold;
     transition: all 0.2s ease;
 }
@@ -448,18 +459,22 @@ body.loaded header {
 
 h1 {
     color: white;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 3.0rem;
+    margin-bottom: 15px;
     text-shadow: 3px 3px 0px #333, 6px 6px 0px rgba(0,0,0,0.3);
-    font-family: 'Courier New', monospace;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
     font-weight: bold;
+    line-height: 1.4;
 }
 
 .subtitle {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 1.2rem;
-    font-family: 'Courier New', monospace;
+    font-size: 1.3rem;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
     text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+    line-height: 1.6;
+    margin-top: 15px;
+    font-weight: bold;
 }
 
 /* Card Styles */
@@ -495,17 +510,22 @@ body.dark-mode .game-card:hover {
 .project-card h3,
 .game-card h3 {
     color: var(--border-primary);
-    font-size: 1.5rem;
-    font-family: 'Courier New', monospace;
+    font-size: 1.6rem;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
     font-weight: bold;
     text-shadow: 2px 2px 0px rgba(102, 126, 234, 0.2);
+    line-height: 1.4;
+    margin-bottom: 18px;
 }
 
 .card p,
 .project-card p,
 .game-card p {
     color: var(--text-secondary);
-    font-family: 'Courier New', monospace;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    font-size: 1.0rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
 /* Button Styles */
@@ -513,17 +533,18 @@ body.dark-mode .game-card:hover {
     background: var(--border-primary);
     color: white;
     border: 3px solid var(--border-secondary);
-    padding: 12px 24px;
+    padding: 15px 25px;
     border-radius: 0px;
     cursor: pointer;
-    font-size: 1rem;
-    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
     font-weight: bold;
     transition: all 0.1s ease;
     text-decoration: none;
     display: inline-block;
     box-shadow: 3px 3px 0px #333;
     text-transform: uppercase;
+    line-height: 1.4;
 }
 
 .btn:hover {
@@ -569,15 +590,16 @@ body.dark-mode .btn-back:hover {
 /* Project Status Badges */
 .project-status {
     display: inline-block;
-    padding: 8px 16px;
+    padding: 10px 18px;
     border-radius: 0px;
     border: 2px solid #333;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: bold;
-    margin-bottom: 15px;
-    font-family: 'Courier New', monospace;
+    margin-bottom: 18px;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
     text-transform: uppercase;
     box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+    line-height: 1.4;
 }
 
 .status-development {
@@ -678,7 +700,7 @@ footer {
     text-align: center;
     color: white;
     box-shadow: 0 0 0 3px var(--border-primary);
-    font-family: 'Courier New', monospace;
+    font-family: 'Jersey15', 'Courier New', monospace;
     margin-top: 40px;
 }
 
@@ -719,7 +741,7 @@ footer {
     padding: 12px 24px;
     border: 3px solid #333;
     border-radius: 0px;
-    font-family: 'Courier New', monospace;
+    font-family: 'Jersey15', 'Courier New', monospace;
     font-weight: bold;
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -813,6 +835,7 @@ body.loaded .games-grid > *:nth-child(4) { transition-delay: 0.5s; }
 @media (max-width: 768px) {
     body {
         padding-top: 80px;
+        font-size: 12px;
     }
     
     .navbar {
@@ -847,12 +870,18 @@ body.loaded .games-grid > *:nth-child(4) { transition-delay: 0.5s; }
     }
     
     .navbar-brand {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         justify-self: start;
+        line-height: 1.2;
     }
     
     h1 {
         font-size: 2rem;
+        line-height: 1.3;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
     }
     
     .container {
@@ -862,19 +891,57 @@ body.loaded .games-grid > *:nth-child(4) { transition-delay: 0.5s; }
     header {
         padding: 20px;
     }
+    
+    .card h2,
+    .project-card h3,
+    .game-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .card p,
+    .project-card p,
+    .game-card p {
+        font-size: 0.7rem;
+    }
+    
+    .btn {
+        font-size: 0.7rem;
+        padding: 12px 18px;
+    }
 }
 
 @media (max-width: 480px) {
+    body {
+        font-size: 11px;
+    }
+    
     .navbar-brand {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
     
     .subtitle {
+        font-size: 0.8rem;
+    }
+    
+    .card h2,
+    .project-card h3,
+    .game-card h3 {
         font-size: 1rem;
+    }
+    
+    .card p,
+    .project-card p,
+    .game-card p {
+        font-size: 0.65rem;
+    }
+    
+    .btn {
+        font-size: 0.65rem;
+        padding: 10px 16px;
     }
 }
 
@@ -931,8 +998,175 @@ body.dark-mode ul li {
     color: var(--text-secondary);
 }
 
-body.dark-mode strong {
-    color: var(--text-primary);
+/* ==========================================
+   ULTIMATE FONT OVERRIDE - EN GÜÇLÜ KURALLAR
+   ========================================== */
+
+/* FORCE PRESS START 2P ON ABSOLUTELY EVERYTHING */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, button, input, textarea, select {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    -webkit-font-smoothing: none !important;
+    -moz-osx-font-smoothing: unset !important;
+    text-rendering: optimizeSpeed !important;
+    font-smooth: never !important;
+    -webkit-font-feature-settings: normal !important;
+    font-feature-settings: normal !important;
+}
+
+/* DISABLE FONT SMOOTHING COMPLETELY */
+* {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    -webkit-font-smoothing: none !important;
+    -moz-osx-font-smoothing: unset !important;
+    text-rendering: optimizeSpeed !important;
+    font-smooth: never !important;
+    -webkit-font-feature-settings: normal !important;
+    font-feature-settings: normal !important;
+}
+
+/* ALL HEADINGS BOLD AND LARGER */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    font-weight: bold !important;
+    line-height: 1.4 !important;
+}
+
+h2 {
+    font-size: 1.6rem !important;
+}
+
+h3 {
+    font-size: 1.3rem !important;
+}
+
+h4 {
+    font-size: 1.0rem !important;
+    font-weight: bold !important;
+}
+
+/* ALL PARAGRAPHS AND TEXT LARGER */
+p {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    font-size: 1.0rem !important;
+    line-height: 1.6 !important;
+}
+
+/* ALL LIST ITEMS */
+li {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    font-size: 1.0rem !important;
+    line-height: 1.6 !important;
+}
+
+/* ALL SPANS AND LABELS */
+span, label {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    font-size: 1.0rem !important;
+}
+
+/* ALL STRONG ELEMENTS BOLD */
+strong {
+    font-weight: bold !important;
+}
+
+/* ALL BUTTONS BOLD AND LARGER */
+button, .btn, input[type="button"], input[type="submit"] {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    font-weight: bold !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+}
+
+/* ALL DIVS GET THE FONT */
+div {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+}
+
+/* FORM ELEMENTS */
+input, textarea, select {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    font-size: 1.0rem !important;
+}
+
+/* TABLE ELEMENTS */
+table, th, td {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+}
+
+th {
+    font-weight: bold !important;
+    font-size: 1.0rem !important;
+}
+
+td {
+    font-size: 1.0rem !important;
+}
+
+/* ALL TEXT ELEMENTS */
+.contact-label, .contact-value, .job-title, .job-date, .company-name,
+.profile-name, .profile-title, .game-info p, .platform-section p,
+.skill-item, .project-status, .platform-badge, .mysterious-title,
+.mystery-text, .description, .coming-soon {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+}
+
+/* SPECIFIC OVERRIDES FOR DIFFERENT ELEMENTS */
+.contact-label {
+    font-size: 1.1rem !important;
+    font-weight: bold !important;
+}
+
+.contact-value {
+    font-size: 0.9rem !important;
+}
+
+.job-title {
+    font-size: 1.0rem !important;
+}
+
+.job-date {
+    font-size: 0.9rem !important;
+}
+
+.company-name {
+    font-size: 1.1rem !important;
+    font-weight: bold !important;
+}
+
+.profile-name {
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+}
+
+.profile-title {
+    font-size: 1.1rem !important;
+}
+
+.skill-item {
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
+}
+
+.project-status {
+    font-size: 1.0rem !important;
+    font-weight: bold !important;
+}
+
+.platform-badge {
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
 }
 
 /* ==========================================
@@ -957,4 +1191,37 @@ body.dark-mode .mobile-menu-item.active {
     background: #764ba2 !important;
     background-color: #764ba2 !important;
     color: white !important;
+}
+
+/* ==========================================
+   ULTIMATE FONT FIX - EN SON KURAL
+   ========================================== */
+
+/* JavaScript benzeri zorla uygulama */
+body *, 
+body *::before, 
+body *::after,
+html *, 
+html *::before, 
+html *::after {
+    font-family: 'Press Start 2P', monospace !important;
+    -webkit-font-smoothing: none !important;
+    -moz-osx-font-smoothing: unset !important;
+    text-rendering: optimizeSpeed !important;
+    font-smooth: never !important;
+}
+
+/* Tüm sayfalarda çalışsın */
+[class*="container"] *,
+[class*="section"] *,
+[class*="card"] *,
+[class*="item"] * {
+    font-family: 'Press Start 2P', monospace !important;
+    -webkit-font-smoothing: none !important;
+    -moz-osx-font-smoothing: unset !important;
+}
+
+/* Sayfa yüklendikten sonra da uygulan */
+body.loaded * {
+    font-family: 'Press Start 2P', monospace !important;
 }
