@@ -14,6 +14,9 @@ class TolgaeaWebsite {
         this.loadPageSpecificFeatures();
         this.logWelcomeMessage();
         this.initPageTransitions();
+        this.initDarkMode();
+        this.addLoadingSpinner();
+        this.setupSmoothScroll();
     }
 
     setupEventListeners() {
@@ -31,9 +34,75 @@ class TolgaeaWebsite {
         this.updateCopyrightYear();
         this.handleSVGResponsiveness();
         
+        // Add staggered fade-in for elements
+        const animateElements = () => {
+            const elements = document.querySelectorAll('.card, .project-card, .game-card, .resume-section');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                    requestAnimationFrame(() => {
+                        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    });
+                }, index * 100);
+            });
+        };
+        
         setTimeout(() => {
             console.log('JavaScript is working! 💻');
-        }, 1000);
+            animateElements();
+        }, 100);
+    }
+
+    // Dark Mode Functions
+    initDarkMode() {
+        // Check for saved dark mode preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            this.updateDarkModeIcon(true);
+        }
+    }
+
+    toggleDarkMode() {
+        const body = document.body;
+        const isDarkMode = body.classList.toggle('dark-mode');
+        
+        // Save preference
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        
+        // Update icon
+        this.updateDarkModeIcon(isDarkMode);
+        
+        // Add smooth transition
+        body.style.transition = 'background 0.3s ease';
+    }
+
+    updateDarkModeIcon(isDarkMode) {
+        const toggleIcons = document.querySelectorAll('.toggle-icon');
+        toggleIcons.forEach(icon => {
+            icon.textContent = isDarkMode ? '☀️' : '🌙';
+        });
+    }
+
+    // Loading Spinner
+    addLoadingSpinner() {
+        // Create loading spinner
+        const spinner = document.createElement('div');
+        spinner.className = 'loading-spinner';
+        document.body.appendChild(spinner);
+        
+        // Remove spinner after page loads
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                spinner.style.opacity = '0';
+                setTimeout(() => {
+                    spinner.remove();
+                }, 300);
+            }, 500);
+        });
     }
 
     // Navigation Functions
@@ -106,6 +175,22 @@ class TolgaeaWebsite {
                 !mobileToggle.contains(e.target)) {
                 this.closeMobileMenu();
             }
+        });
+    }
+
+    // Smooth Scroll
+    setupSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     }
 
@@ -342,6 +427,10 @@ window.toggleMobileMenu = () => {
 
 window.closeMobileMenu = () => {
     tolgaeaWebsite.closeMobileMenu();
+};
+
+window.toggleDarkMode = () => {
+    tolgaeaWebsite.toggleDarkMode();
 };
 
 window.createFloatingImage = () => {
