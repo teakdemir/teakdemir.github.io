@@ -164,6 +164,13 @@ body.loaded .navbar {
     filter: brightness(0) invert(1);
 }
 
+/* DARK MODE TOGGLE HOVER IN DARK MODE */
+body.dark-mode .dark-mode-toggle:hover {
+    background: #667eea;
+    transform: translateY(-50%) translateY(-2px);
+    box-shadow: 4px 4px 0px rgba(102, 126, 234, 0.5);
+}
+
 .toggle-icon {
     font-size: 1.5rem;
     transition: all 0.3s ease;
@@ -252,6 +259,14 @@ body.dark-mode .navbar-item {
     color: white;
     transform: translateY(-2px);
     box-shadow: 3px 3px 0px var(--shadow-color);
+}
+
+/* DARK MODE NAVBAR HOVER EFFECTS */
+body.dark-mode .navbar-item:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 0px rgba(102, 126, 234, 0.5);
 }
 
 .navbar-item.active {
@@ -390,6 +405,14 @@ body.dark-mode .mobile-menu-item {
     transform: translateX(-5px);
 }
 
+/* DARK MODE MOBILE MENU HOVER */
+body.dark-mode .mobile-menu-item:hover {
+    background: #667eea;
+    color: white;
+    transform: translateX(-5px);
+    box-shadow: 3px 3px 0px rgba(102, 126, 234, 0.3);
+}
+
 .mobile-menu-item.active {
     background: var(--border-primary);
     color: white;
@@ -460,6 +483,14 @@ h1 {
     box-shadow: 9px 9px 0px var(--shadow-color);
 }
 
+/* DARK MODE CARD HOVER EFFECTS */
+body.dark-mode .card:hover,
+body.dark-mode .project-card:hover,
+body.dark-mode .game-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0px rgba(102, 126, 234, 0.4);
+}
+
 .card h2,
 .project-card h3,
 .game-card h3 {
@@ -506,6 +537,18 @@ h1 {
     box-shadow: 1px 1px 0px #333;
 }
 
+/* DARK MODE BUTTON HOVER EFFECTS */
+body.dark-mode .btn:hover {
+    background: #764ba2;
+    box-shadow: 5px 5px 0px rgba(102, 126, 234, 0.5);
+    transform: translate(-2px, -2px);
+}
+
+body.dark-mode .btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px rgba(102, 126, 234, 0.5);
+}
+
 .btn-back {
     margin: 20px auto;
     display: block;
@@ -515,6 +558,12 @@ h1 {
 
 .btn-back:hover {
     background: var(--border-primary);
+}
+
+/* DARK MODE BACK BUTTON */
+body.dark-mode .btn-back:hover {
+    background: #667eea;
+    box-shadow: 5px 5px 0px rgba(102, 126, 234, 0.5);
 }
 
 /* Project Status Badges */
@@ -599,6 +648,11 @@ body.dark-mode .skill-item {
     color: var(--text-primary);
 }
 
+body.dark-mode .skill-item:hover {
+    background: var(--border-primary);
+    color: white;
+}
+
 /* Contact items dark mode support */
 .contact-item {
     background: #f8f8f8;
@@ -607,6 +661,11 @@ body.dark-mode .skill-item {
 
 body.dark-mode .contact-item {
     background: rgba(102, 126, 234, 0.1);
+}
+
+body.dark-mode .contact-item:hover {
+    background: rgba(102, 126, 234, 0.2);
+    color: var(--text-primary);
 }
 
 /* Footer */
@@ -817,4 +876,61 @@ body.loaded .games-grid > *:nth-child(4) { transition-delay: 0.5s; }
     .subtitle {
         font-size: 1rem;
     }
+}
+
+/* DARK MODE SPECIFIC FIXES */
+body.dark-mode .resume-section h2,
+body.dark-mode .resume-section h3 {
+    color: var(--border-primary);
+}
+
+body.dark-mode .job-title,
+body.dark-mode .job-date {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .company-name {
+    color: var(--border-primary);
+}
+
+body.dark-mode .education-flowchart img {
+    background: var(--bg-primary);
+    border-color: var(--border-primary);
+}
+
+body.dark-mode .profile-name {
+    color: var(--border-primary);
+}
+
+body.dark-mode .profile-title {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .contact-info-section h2 {
+    color: var(--border-primary);
+}
+
+body.dark-mode .contact-label {
+    color: var(--border-primary);
+}
+
+body.dark-mode .contact-value {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .game-info h4,
+body.dark-mode .platform-section h4 {
+    color: var(--border-primary);
+}
+
+body.dark-mode p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode ul li {
+    color: var(--text-secondary);
+}
+
+body.dark-mode strong {
+    color: var(--text-primary);
 }

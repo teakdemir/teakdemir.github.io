@@ -25,6 +25,12 @@
     text-align: center;
 }
 
+/* DARK MODE OVERRIDE FOR PROFILE SECTION */
+body.dark-mode .profile-section {
+    background: rgba(22, 33, 62, 0.95) !important;
+    color: #e8e8e8 !important;
+}
+
 .profile-photo {
     width: 200px;
     height: 200px;
@@ -52,6 +58,16 @@
     font-style: italic;
 }
 
+/* DARK MODE OVERRIDE FOR PROFILE TEXT */
+body.dark-mode .profile-title {
+    color: #b8b8b8 !important;
+}
+
+body.dark-mode .profile-section p {
+    color: #b8b8b8 !important;
+    text-align: center;
+}
+
 /* Contact Info Section */
 .contact-info-section {
     background: rgba(255, 255, 255, 0.9);
@@ -59,6 +75,12 @@
     border: 3px solid #667eea;
     padding: 30px;
     box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+}
+
+/* DARK MODE OVERRIDE FOR CONTACT INFO SECTION */
+body.dark-mode .contact-info-section {
+    background: rgba(22, 33, 62, 0.95) !important;
+    color: #e8e8e8 !important;
 }
 
 .contact-info-section h2 {
@@ -89,10 +111,24 @@
     color: #333;
 }
 
+/* DARK MODE OVERRIDE FOR CONTACT ITEMS */
+body.dark-mode .contact-item {
+    background: rgba(102, 126, 234, 0.1) !important;
+    color: #e8e8e8 !important;
+}
+
 .contact-item:hover {
     transform: translate(-2px, -2px);
     box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
     background: #e8e8e8;
+}
+
+/* DARK MODE OVERRIDE FOR CONTACT ITEM HOVER */
+body.dark-mode .contact-item:hover {
+    background: rgba(102, 126, 234, 0.3) !important;
+    color: #e8e8e8 !important;
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px rgba(102, 126, 234, 0.2);
 }
 
 .contact-icon {
@@ -118,6 +154,11 @@
 .contact-value {
     color: #666;
     font-size: 0.9rem;
+}
+
+/* DARK MODE OVERRIDE FOR CONTACT LABELS AND VALUES */
+body.dark-mode .contact-value {
+    color: #b8b8b8 !important;
 }
 
 /* Mobile Responsive */
