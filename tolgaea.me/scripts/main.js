@@ -439,35 +439,7 @@ class TolgaeaWebsite {
         }, 2000);
     }
 
-    createFloatingEmoji() {
-        const emojis = ['❤️', '🎮', '💻', '🚀', '⭐'];
-        const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-        
-        const x = Math.random() * (window.innerWidth - 60);
-        const y = Math.random() * (window.innerHeight - 60);
-        
-        const emojiDiv = document.createElement('div');
-        emojiDiv.textContent = randomEmoji;
-        emojiDiv.className = 'floating-image';
-        emojiDiv.style.left = x + 'px';
-        emojiDiv.style.top = y + 'px';
-        emojiDiv.style.fontSize = '40px';
-        emojiDiv.style.display = 'flex';
-        emojiDiv.style.alignItems = 'center';
-        emojiDiv.style.justifyContent = 'center';
-        
-        document.body.appendChild(emojiDiv);
-        
-        setTimeout(() => {
-            emojiDiv.classList.add('animate');
-        }, 10);
-        
-        setTimeout(() => {
-            if (emojiDiv.parentNode) {
-                emojiDiv.parentNode.removeChild(emojiDiv);
-            }
-        }, 2000);
-    }
+  
 }
 
 // Initialize Website
