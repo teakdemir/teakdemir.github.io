@@ -17,6 +17,7 @@ class TolgaeaWebsite {
         this.initDarkMode();
         this.addLoadingSpinner();
         this.setupSmoothScroll();
+        this.setupCustomCursor(); // CURSOR SETUP EKLENDI
     }
 
     setupEventListeners() {
@@ -365,9 +366,52 @@ class TolgaeaWebsite {
         }, 2000);
     }
 
-    // Floating Image Animation
+    // CURSOR SETUP - YENİ FONKSİYON
+    setupCustomCursor() {
+        // Sayfanın genel cursor'unu değiştir
+        document.body.style.cursor = 'crosshair';
+        
+        // Interactive elementlere özel cursor'lar
+        const setupElementCursor = () => {
+            const buttons = document.querySelectorAll('.btn, button, .navbar-item, .mobile-menu-item, .contact-item, a');
+            buttons.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    document.body.style.cursor = 'grab';
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    document.body.style.cursor = 'crosshair';
+                });
+            });
+
+            // Kalp için özel cursor
+            const hearts = document.querySelectorAll('.heart-clickable');
+            hearts.forEach(heart => {
+                heart.addEventListener('mouseenter', () => {
+                    document.body.style.cursor = 'grab';
+                });
+                
+                heart.addEventListener('mousedown', () => {
+                    document.body.style.cursor = 'grabbing';
+                });
+                
+                heart.addEventListener('mouseup', () => {
+                    document.body.style.cursor = 'grab';
+                });
+                
+                heart.addEventListener('mouseleave', () => {
+                    document.body.style.cursor = 'crosshair';
+                });
+            });
+        };
+
+        // Sayfa yüklendikten sonra cursor setup'ı çalıştır
+        setTimeout(setupElementCursor, 500);
+    }
+
+    // Floating Image Animation change the number 10 to the number of images you have. all images should be in the images/Random folder. and named number.jpg
     createFloatingImage() {
-        const imageNumber = Math.floor(Math.random() * 5) + 1;
+        const imageNumber = Math.floor(Math.random() * 10) + 1;
         const x = Math.random() * (window.innerWidth - 60);
         const y = Math.random() * (window.innerHeight - 60);
         
