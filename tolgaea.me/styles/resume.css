@@ -10,7 +10,7 @@
 /* Resume Section */
 .resume-section {
     background: rgba(255, 255, 255, 0.9);
-    border-radius: 0px;
+    border-radius: 16px;
     border: 3px solid #667eea;
     padding: 30px;
     margin-bottom: 20px;
