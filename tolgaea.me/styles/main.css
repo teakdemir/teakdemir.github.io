@@ -207,11 +207,13 @@ body.dark-mode .dark-mode-toggle:hover {
     transition: all 0.2s ease;
     text-align: center;
     line-height: 1.4;
+    
 }
 
 .navbar-brand:hover {
     color: #764ba2;
     transform: scale(1.05);
+    cursor: crosshair !important
 }
 
 /* Right side navigation items - merkeze yakın */
@@ -1251,4 +1253,6 @@ body.loaded * {
         font-size: 1.8rem !important; /* Küçük mobile'da da büyük */
     }
 }
+
+
 }
