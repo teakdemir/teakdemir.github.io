@@ -1,5 +1,6 @@
 # Site
 # tolgaea.me
+# https://teakdemir.github.io/
 
 A personal portfolio website for my game projects.
 Got some help from claude.ai
