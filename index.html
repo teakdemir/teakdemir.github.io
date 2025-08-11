@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tolgaea.me - Redirecting...</title>
+    <meta http-equiv="refresh" content="0; url=./tolgaea.me/">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Press Start 2P', monospace;
+            color: white;
+            text-align: center;
+        }
+        
+        .loading-container {
+            background: rgba(255, 255, 255, 0.1);
+            border: 3px solid white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-size: 14px;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+        }
+        
+        .redirect-link {
+            color: #ffd93d;
+            text-decoration: none;
+            margin-top: 20px;
+            display: block;
+            font-size: 12px;
+        }
+        
+        .redirect-link:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading tolgaea.me...</div>
+        <a href="./tolgaea.me/" class="redirect-link">Click here if not redirected</a>
+    </div>
+    
+    <script>
+        // Fallback redirect
+        setTimeout(() => {
+            if (window.location.pathname === '/') {
+                window.location.href = './tolgaea.me/';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
