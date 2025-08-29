@@ -1254,5 +1254,147 @@ body.loaded * {
     }
 }
 
+/* ADD THESE STYLES TO YOUR EXISTING main.css */
+
+/* ==========================================
+   BROWSER NAVIGATION FIXES
+   ========================================== */
+
+/* Ensure body always shows content on cache load */
+body {
+    opacity: 1 !important; /* Force visibility */
+    transition: opacity 0.3s ease;
+}
+
+/* Only hide during initial load, not cache load */
+body:not(.loaded):not(.cache-loaded) {
+    opacity: 0;
+}
+
+/* Ensure elements are visible when page loads from cache */
+body.loaded,
+body.cache-loaded {
+    opacity: 1 !important;
+}
+
+/* Fix for elements not showing on browser back */
+.container,
+.navbar,
+header,
+footer {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Loading spinner should not interfere with cached pages */
+.loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 3px solid var(--border-primary);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Don't block interactions */
+}
+
+/* Hide spinner immediately on loaded or cached pages */
+body.loaded .loading-spinner,
+body.cache-loaded .loading-spinner {
+    opacity: 0 !important;
+    display: none !important;
+}
+
+/* Ensure navigation is always visible */
+.navbar {
+    opacity: 1 !important;
+    transform: translateX(-50%) translateY(0) !important;
+    visibility: visible !important;
+}
+
+/* Fix for mobile menu state on browser back */
+.mobile-menu:not(.active) {
+    right: -300px;
+}
+
+.mobile-menu-overlay:not(.active) {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Ensure all cards and content are visible */
+.card,
+.project-card,
+.game-card,
+.resume-section,
+.content-section,
+.contact-content > * {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    visibility: visible !important;
+}
+
+/* Force visibility for critical elements */
+header,
+.main-content,
+.projects-grid,
+.games-grid,
+footer {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ==========================================
+   ANIMATION OVERRIDES FOR CACHED PAGES
+   ========================================== */
+
+/* Skip animations on cached page loads */
+body.cache-loaded * {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+}
+
+/* Reset animations after cache load */
+body.cache-loaded.animations-enabled * {
+    animation-duration: initial;
+    transition-duration: initial;
+}
+
+/* ==========================================
+   FAILSAFE VISIBILITY RULES
+   ========================================== */
+
+/* These rules ensure content is always visible regardless of JS state */
+@media (max-width: 768px) {
+    body {
+        opacity: 1 !important;
+    }
+    
+    .container {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+/* Backup visibility for slow connections */
+@media (prefers-reduced-motion: reduce) {
+    body {
+        opacity: 1 !important;
+    }
+    
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
 
 }

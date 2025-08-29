@@ -6,8 +6,12 @@
     <title>My Game Projects - tolgaea.me</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/projects.css">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 </head>
 <body>
+    
      <!-- Loading Spinner -->
     <div class="loading-spinner"></div>
     
@@ -127,5 +131,21 @@
     </div>
 
     <script src="scripts/main.js"></script>
+    <script>
+// Quick fix for browser back button
+(function() {
+    // Immediately show content on page load
+    document.body.style.opacity = '1';
+    document.body.classList.add('loaded');
+    
+    // Handle browser navigation
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            document.body.style.opacity = '1';
+            document.body.classList.add('loaded', 'cache-loaded');
+        }
+    });
+})();
+</script>
 </body>
 </html>

@@ -1,10 +1,11 @@
 /* ==========================================
-   TOLGAEA.ME - MAIN JAVASCRIPT (COMPLETE REWRITE)
+   TOLGAEA.ME - MAIN JAVASCRIPT (BROWSER BACK FIX)
    ========================================== */
 
 // Main Website Class
 class TolgaeaWebsite {
     constructor() {
+        this.isLoaded = false;
         this.init();
     }
 
@@ -17,16 +18,38 @@ class TolgaeaWebsite {
         this.initDarkMode();
         this.addLoadingSpinner();
         this.setupSmoothScroll();
-        this.setupCustomCursor(); // CURSOR SETUP EKLENDI
+        this.setupCustomCursor();
+        this.handleBrowserNavigation(); // NEW: Handle browser back/forward
     }
 
     setupEventListeners() {
-        document.addEventListener('DOMContentLoaded', () => {
+        // Handle both DOMContentLoaded and immediate execution
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                this.onPageLoad();
+            });
+        } else {
+            // Document is already loaded
             this.onPageLoad();
-        });
+        }
 
         window.addEventListener('load', () => {
-            document.body.classList.add('loaded');
+            this.markPageAsLoaded();
+        });
+
+        // NEW: Handle browser navigation (back/forward buttons)
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                // Page was loaded from cache (back/forward button)
+                this.handleCachedPageLoad();
+            }
+        });
+
+        // NEW: Handle visibility changes (tab switching)
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden && !this.isLoaded) {
+                this.markPageAsLoaded();
+            }
         });
     }
 
@@ -55,6 +78,71 @@ class TolgaeaWebsite {
             console.log('JavaScript is working! 💻');
             animateElements();
         }, 100);
+
+        // Ensure page is marked as loaded
+        setTimeout(() => {
+            if (!this.isLoaded) {
+                this.markPageAsLoaded();
+            }
+        }, 500);
+    }
+
+    // NEW: Mark page as loaded and show content
+    markPageAsLoaded() {
+        this.isLoaded = true;
+        document.body.classList.add('loaded');
+        document.body.style.opacity = '1';
+        
+        // Hide loading spinner
+        const spinner = document.querySelector('.loading-spinner');
+        if (spinner) {
+            spinner.style.opacity = '0';
+            setTimeout(() => {
+                if (spinner.parentNode) {
+                    spinner.parentNode.removeChild(spinner);
+                }
+            }, 300);
+        }
+    }
+
+    // NEW: Handle cached page loads (browser back/forward)
+    handleCachedPageLoad() {
+        console.log('Page loaded from cache (back button) 🔄');
+        
+        // Reset page state
+        document.body.style.opacity = '1';
+        document.body.classList.add('loaded');
+        this.isLoaded = true;
+        
+        // Remove any loading spinners
+        const spinner = document.querySelector('.loading-spinner');
+        if (spinner && spinner.parentNode) {
+            spinner.parentNode.removeChild(spinner);
+        }
+        
+        // Re-initialize navigation
+        this.setActiveNavItem();
+        
+        // Re-run page-specific features
+        this.loadPageSpecificFeatures();
+    }
+
+    // NEW: Handle browser navigation
+    handleBrowserNavigation() {
+        // Listen for popstate (back/forward button clicks)
+        window.addEventListener('popstate', (event) => {
+            console.log('Browser navigation detected 🔙');
+            
+            // Reset page state immediately
+            document.body.style.opacity = '1';
+            document.body.classList.add('loaded');
+            this.isLoaded = true;
+            
+            // Update active navigation
+            setTimeout(() => {
+                this.setActiveNavItem();
+            }, 50);
+        });
     }
 
     // Dark Mode Functions
@@ -88,22 +176,14 @@ class TolgaeaWebsite {
         });
     }
 
-    // Loading Spinner
+    // UPDATED: Loading Spinner with better cleanup
     addLoadingSpinner() {
-        // Create loading spinner
-        const spinner = document.createElement('div');
-        spinner.className = 'loading-spinner';
-        document.body.appendChild(spinner);
-        
-        // Remove spinner after page loads
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                spinner.style.opacity = '0';
-                setTimeout(() => {
-                    spinner.remove();
-                }, 300);
-            }, 500);
-        });
+        // Only add spinner if it doesn't exist and page isn't loaded
+        if (!document.querySelector('.loading-spinner') && !this.isLoaded) {
+            const spinner = document.createElement('div');
+            spinner.className = 'loading-spinner';
+            document.body.appendChild(spinner);
+        }
     }
 
     // Navigation Functions
@@ -155,6 +235,8 @@ class TolgaeaWebsite {
 
         const updateNavbar = () => {
             const navbar = document.querySelector('.navbar');
+            if (!navbar) return;
+            
             const currentScroll = window.pageYOffset;
             
             if (currentScroll > lastScroll && currentScroll > 100) {
@@ -204,7 +286,7 @@ class TolgaeaWebsite {
         });
     }
 
-    // Page Transitions
+    // UPDATED: Page Transitions with back button support
     initPageTransitions() {
         const links = document.querySelectorAll('a[href$=".html"]');
         links.forEach(link => {
@@ -216,11 +298,16 @@ class TolgaeaWebsite {
                 e.preventDefault();
                 this.closeMobileMenu();
                 
-                document.body.style.opacity = '0';
-                
-                setTimeout(() => {
+                // Only animate if not using browser navigation
+                if (!e.isTrusted || e.type === 'click') {
+                    document.body.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 300);
+                } else {
                     window.location.href = href;
-                }, 300);
+                }
             });
         });
     }
@@ -366,7 +453,7 @@ class TolgaeaWebsite {
         }, 2000);
     }
 
-    // CURSOR SETUP - YENİ FONKSİYON
+    // CURSOR SETUP
     setupCustomCursor() {
         // Sayfanın genel cursor'unu değiştir
         document.body.style.cursor = 'crosshair';
@@ -409,7 +496,7 @@ class TolgaeaWebsite {
         setTimeout(setupElementCursor, 500);
     }
 
-    // Floating Image Animation change the number 10 to the number of images you have. all images should be in the images/Random folder. and named number.jpg
+    // Floating Image Animation
     createFloatingImage() {
         const imageNumber = Math.floor(Math.random() * 10) + 1;
         const x = Math.random() * (window.innerWidth - 60);
@@ -438,8 +525,6 @@ class TolgaeaWebsite {
             }
         }, 2000);
     }
-
-  
 }
 
 // Initialize Website
