@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - tolgaea.me</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/contact.css">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+</head>
+<body>
+    
+    <!-- Loading Spinner -->
+    <div class="loading-spinner"></div>
+    
+    <!-- Navigation Toolbar HTML Structure -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Left side navigation -->
+            <div class="navbar-menu-left">
+                <a href="index.html" class="navbar-item" data-page="index">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-text">Home</span>
+                </a>
+                <a href="projects.html" class="navbar-item" data-page="projects">
+                    <span class="nav-icon">🎮</span>
+                    <span class="nav-text">Projects</span>
+                </a>
+            </div>
+            
+            <!-- Center brand -->
+            <a class="navbar-brand">
+                <span class="brand-text">tolgaea.me</span>
+            </a>
+            
+            <!-- Right side navigation -->
+            <div class="navbar-menu-right">
+                <a href="resume.html" class="navbar-item" data-page="resume">
+                    <span class="nav-icon">📄</span>
+                    <span class="nav-text">Resume</span>
+                </a>
+                <a href="contact.html" class="navbar-item" data-page="contact">
+                    <span class="nav-icon">📧</span>
+                    <span class="nav-text">Contact</span>
+                </a>
+            </div>
+            
+            <!-- Dark mode toggle -->
+            <div class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+                <span class="toggle-icon">🌙</span>
+            </div>
+            
+            <!-- Mobile toggle button -->
+            <div class="navbar-mobile-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button class="close-btn" onclick="closeMobileMenu()">✕</button>
+        </div>
+        <div class="mobile-menu-items">
+            <a href="index.html" class="mobile-menu-item" data-page="index">
+                <span class="nav-icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="projects.html" class="mobile-menu-item" data-page="projects">
+                <span class="nav-icon">🎮</span>
+                <span>Projects</span>
+            </a>
+            <a href="resume.html" class="mobile-menu-item" data-page="resume">
+                <span class="nav-icon">📄</span>
+                <span>Resume</span>
+            </a>
+            <a href="contact.html" class="mobile-menu-item" data-page="contact">
+                <span class="nav-icon">📧</span>
+                <span>Contact</span>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <header>
+            <h1>Contact Me</h1>
+            <p class="subtitle">Let's Connect and Collaborate!</p>
+        </header>
+
+        <div class="contact-content">
+            <div class="profile-section">
+                <img src="images/Ben.jpg" alt="Tolga Eren Akdemir" class="profile-photo">
+                <div class="profile-name">Tolga Eren Akdemir</div>
+                <div class="profile-title">Indie Game Developer & Network Technician</div>
+                <p>Always open to new projects, collaborations, and exciting opportunities!</p>
+            </div>
+
+            <div class="contact-info-section">
+                <h2>Get In Touch</h2>
+                
+                <div class="contact-icons">
+                    <a href="#" class="contact-item" onclick="copyEmail(event)">
+                        <img src="images/email.svg" alt="Email" class="contact-icon">
+                        <div class="contact-details">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">takdemirbusiness@gmail.com</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/tolga-eren-akdemir-1b9021266/" target="_blank" class="contact-item">
+                        <img src="images/linkedin.svg" alt="LinkedIn" class="contact-icon">
+                        <div class="contact-details">
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-value">Professional Profile</span>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/teakdemir" target="_blank" class="contact-item">
+                        <img src="images/github.svg" alt="GitHub" class="contact-icon">
+                        <div class="contact-details">
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">Code Repository</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <a href="index.html" class="btn btn-back">← Back to Main Site</a>
+
+        <footer>
+            <p>&copy; 2025 tolgaea.me - Contact Page</p>
+            <p>Made with <span class="heart-clickable" onclick="createFloatingImage()">❤️</span> by an indie game developer</p>
+        </footer>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script>
+// Quick fix for browser back button
+(function() {
+    // Immediately show content on page load
+    document.body.style.opacity = '1';
+    document.body.classList.add('loaded');
+    
+    // Handle browser navigation
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            document.body.style.opacity = '1';
+            document.body.classList.add('loaded', 'cache-loaded');
+        }
+    });
+})();
+</script>
+</body>
+</html>

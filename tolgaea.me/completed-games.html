@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completed Games - tolgaea.me</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/completed-games.css">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+</head>
+<body>
+    
+    <!-- Loading Spinner -->
+    <div class="loading-spinner"></div>
+    
+    <!-- Navigation Toolbar HTML Structure -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Left side navigation -->
+            <div class="navbar-menu-left">
+                <a href="index.html" class="navbar-item" data-page="index">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-text">Home</span>
+                </a>
+                <a href="projects.html" class="navbar-item" data-page="projects">
+                    <span class="nav-icon">🎮</span>
+                    <span class="nav-text">Projects</span>
+                </a>
+            </div>
+            
+            <!-- Center brand -->
+            <a class="navbar-brand">
+                <span class="brand-text">tolgaea.me</span>
+            </a>
+            
+            <!-- Right side navigation -->
+            <div class="navbar-menu-right">
+                <a href="resume.html" class="navbar-item" data-page="resume">
+                    <span class="nav-icon">📄</span>
+                    <span class="nav-text">Resume</span>
+                </a>
+                <a href="contact.html" class="navbar-item" data-page="contact">
+                    <span class="nav-icon">📧</span>
+                    <span class="nav-text">Contact</span>
+                </a>
+            </div>
+            
+            <!-- Dark mode toggle -->
+            <div class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+                <span class="toggle-icon">🌙</span>
+            </div>
+            
+            <!-- Mobile toggle button -->
+            <div class="navbar-mobile-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button class="close-btn" onclick="closeMobileMenu()">✕</button>
+        </div>
+        <div class="mobile-menu-items">
+            <a href="index.html" class="mobile-menu-item" data-page="index">
+                <span class="nav-icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="projects.html" class="mobile-menu-item" data-page="projects">
+                <span class="nav-icon">🎮</span>
+                <span>Projects</span>
+            </a>
+            <a href="resume.html" class="mobile-menu-item" data-page="resume">
+                <span class="nav-icon">📄</span>
+                <span>Resume</span>
+            </a>
+            <a href="contact.html" class="mobile-menu-item" data-page="contact">
+                <span class="nav-icon">📧</span>
+                <span>Contact</span>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <header>
+            <h1>Completed Games</h1>
+            <p class="subtitle">My released indie games. Join the party!</p>
+        </header>
+
+        <div class="games-grid">
+            <!-- Game 1 -->
+            <div class="game-card">
+                <h3>Legacy Chronicles</h3>
+                <p>The first game developed by our community using Godot. A space combat game featuring both story mode with cinematic sequences and survival mode with endless enemy waves. Includes upgrade system and multiple enemy types.</p>
+                        <p></p>
+                        <p></p>
+                <div class="game-sections">
+                    <div class="game-info">
+                        <h4>Project Details</h4>
+                        <p><strong>Genre:</strong> Space Combat / Action / Shoot' em up/ 2D</p>
+                        <p><strong>Development Role:</strong> Movement, Dash & Combat</p>
+                        <p><strong>Engine:</strong> Godot</p>
+                        <p><strong>Features:</strong> Story Mode, Survival Mode, Upgrade System</p>
+                        <p><strong>Team Size:</strong> 8 people (2 managers, 1 artist, 5 coders) </p>
+                        <p><strong>Development Time:</strong> 6 months</p>
+                    </div>
+                    <div class="platform-section">
+                        <h4>Platforms</h4>
+                        <span class="platform-badge">PC</span>
+                    </div>
+                </div>
+
+                <a href="https://itch.io/e/28608843/mertkavilcioglu-published-legacy-chronicles" target="_blank" class="btn">Play Game</a>
+            </div>
+
+            <!-- Game 2 -->
+            <div class="game-card">
+                <h3>Project: Bitler</h3>
+                <p>A top-down 2D shooter developed with Atilim Game Developers Club. Fusion between Terminator and Conquest of Istanbul themes. Bitler has a unique compass system. Team project with 7 members where I handled coding and map design.</p>
+                <p></p>
+                <p></p>
+                <div class="game-sections">
+                    <div class="game-info">
+                        <h4>Project Details</h4>
+                        <p><strong>Genre:</strong> Top-down Shooter / Action/ 2D</p>
+                        <p><strong>Development Role:</strong> Programmer & Map Designer</p>
+                        <p><strong>Engine:</strong> Unity5</p>
+                        <p><strong>Features:</strong> Story Mode, Quest System</p>
+                        <p><strong>Team Size:</strong> 7 people (2 managers, 1 artist, 4 coders)</p>
+                        <p><strong>Development Time:</strong> 7 months</p>
+                     
+                    </div>
+
+                    <div class="platform-section">
+                        <h4>Platforms</h4>
+                        <span class="platform-badge">PC</span>
+                    </div>
+                </div>
+
+                <a href="https://atilimogt.itch.io/projectbitler" target="_blank" class="btn">Play Game</a>
+            </div>
+
+            <!-- Game 3 -->
+            <div class="game-card">
+                <h3>Rageful Sorrow</h3>
+                <p>A unique top-down 2D shooter created for Pirate Game Jam in 10 days. Features innovative Rage and Sorrow mechanic where dealing damage increases sorrow (reduces damage) while taking damage increases rage (boosts damage).</p>
+                <p></p>
+                <p></p>
+                <div class="game-sections">
+                    <div class="game-info">
+                        <h4>Project Details</h4>
+                        <p><strong>Genre:</strong> Top-down Shooter / Psychological / 2D</p>
+                        <p><strong>Development Role:</strong> Manager, Designer & Programmer</p>
+                        <p><strong>Engine:</strong> Unity6</p>
+                         <p><strong>Features:</strong> Level-based System, Psychiatric</p>
+                        <p><strong>Team Size:</strong> 7 people (2 managers, 1 artist, 4 coders)</p>
+                        <p><strong>Development Time:</strong> 10 days</p>
+                    </div>
+
+                    <div class="platform-section">
+                        <h4>Platforms</h4>
+                        <span class="platform-badge">PC</span>
+                    </div>
+                </div>
+
+                <a href="https://baybaboon.itch.io/ragefulsorrow" target="_blank" class="btn">Play Game</a>
+            </div>
+
+            <!-- Placeholder for future games -->
+            <div class="add-game-placeholder">
+                + More Games Coming Soon +
+            </div>
+        </div>
+
+        <a href="projects.html" class="btn btn-back">← Back to Projects</a>
+
+        <footer>
+            <p>&copy; 2025 tolgaea.me - Completed Games Portfolio</p>
+            <p>Made with <span class="heart-clickable" onclick="createFloatingImage()">❤️</span> by an indie game developer</p>
+        </footer>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script>
+// Quick fix for browser back button
+(function() {
+    // Immediately show content on page load
+    document.body.style.opacity = '1';
+    document.body.classList.add('loaded');
+    
+    // Handle browser navigation
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            document.body.style.opacity = '1';
+            document.body.classList.add('loaded', 'cache-loaded');
+        }
+    });
+})();
+</script>
+</body>
+</html>

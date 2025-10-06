@@ -1,0 +1,1400 @@
+/* ==========================================
+   TOLGAEA.ME - MAIN STYLES--> arman yuvarlağa selam olsun
+   ========================================== */
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* JERSEY15 FONT IMPORT */
+@font-face {
+    font-family: 'Jersey15';
+    src: url('fonts/Jersey15-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+     -webkit-animation: alternate-reverse;
+    animation: alternate-reverse;
+}
+
+/* Dark Mode Root Variables */
+:root {
+    --bg-gradient-start: #667eea;
+    --bg-gradient-end: #764ba2;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --bg-primary: rgba(255, 255, 255, 0.9);
+    --bg-secondary: rgba(255, 255, 255, 0.95);
+    --bg-tertiary: rgba(255, 255, 255, 0.1);
+    --border-primary: #667eea;
+    --border-secondary: #fff;
+    --shadow-color: rgba(0,0,0,0.2);
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --bg-gradient-start: #1a1a2e;
+    --bg-gradient-end: #16213e;
+    --text-primary: #e8e8e8;
+    --text-secondary: #b8b8b8;
+    --bg-primary: rgba(22, 33, 62, 0.95);
+    --bg-secondary: rgba(26, 26, 46, 0.98);
+    --bg-tertiary: rgba(255, 255, 255, 0.1);
+    --border-primary: #667eea;
+    --border-secondary: #667eea;
+    --shadow-color: rgba(102, 126, 234, 0.3);
+    --navbar-bg: rgba(22, 33, 62, 0.98);
+}
+
+/* Main Body Styles */
+body {
+    font-family: 'Jersey15', 'Courier New', monospace;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    min-height: 100vh;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    padding-top: 100px;
+    opacity: 0;
+    transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 3px solid var(--border-primary);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+body.loaded .loading-spinner {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ==========================================
+   NAVIGATION TOOLBAR - ICONS CLOSER TO CENTER
+   ========================================== */
+
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    background: var(--navbar-bg);
+    backdrop-filter: blur(10px);
+    border: 3px solid var(--border-primary);
+    border-radius: 16px;
+    box-shadow: 6px 6px 0px var(--shadow-color);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+}
+
+body.loaded .navbar {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.navbar:hover {
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 8px 8px 0px var(--shadow-color);
+}
+
+.navbar-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 15px 30px;
+    gap: 30px;
+    position: relative;
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: var(--bg-primary);
+    border: 2px solid var(--border-primary);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 0px var(--shadow-color);
+}
+
+.dark-mode-toggle:hover {
+    background: var(--border-primary);
+    transform: translateY(-50%) translateY(-2px);
+    box-shadow: 4px 4px 0px var(--shadow-color);
+}
+
+.dark-mode-toggle:hover .toggle-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* DARK MODE TOGGLE HOVER IN DARK MODE */
+body.dark-mode .dark-mode-toggle:hover {
+    background: #667eea;
+    transform: translateY(-50%) translateY(-2px);
+    box-shadow: 4px 4px 0px rgba(102, 126, 234, 0.5);
+}
+
+.toggle-icon {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Left side navigation items - merkeze yakın */
+.navbar-menu-left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+/* Brand in center */
+.navbar-brand {
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: var(--border-primary);
+    text-decoration: none;
+    text-shadow: 2px 2px 0px rgba(102, 126, 234, 0.2);
+    transition: all 0.2s ease;
+    text-align: center;
+    line-height: 1.4;
+    
+}
+
+.navbar-brand:hover {
+    color: #764ba2;
+    transform: scale(1.05);
+    cursor: crosshair !important
+}
+
+/* Right side navigation items - merkeze yakın */
+.navbar-menu-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
+/* Keep old .navbar-menu for backward compatibility */
+.navbar-menu {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.navbar-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--bg-primary);
+    border: 2px solid var(--border-primary);
+    color: var(--border-primary);
+    text-decoration: none;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+body.dark-mode .navbar-item {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.navbar-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.navbar-item:hover::before {
+    left: 100%;
+}
+
+.navbar-item:hover {
+    background: var(--border-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 0px var(--shadow-color);
+}
+
+/* DARK MODE NAVBAR HOVER EFFECTS */
+body.dark-mode .navbar-item:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 0px rgba(102, 126, 234, 0.5);
+}
+
+.navbar-item.active {
+    background: var(--border-primary);
+    color: white;
+    box-shadow: inset 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+}
+
+.nav-text {
+    text-transform: uppercase;
+}
+
+/* Mobile Toggle - positioned on the right */
+.navbar-mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    padding: 5px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.navbar-mobile-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--border-primary);
+    transition: all 0.3s ease;
+}
+
+.navbar-mobile-toggle:hover span {
+    background: #764ba2;
+}
+
+/* Mobile Menu */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1100;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100%;
+    background: var(--navbar-bg);
+    backdrop-filter: blur(10px);
+    border-left: 3px solid var(--border-primary);
+    box-shadow: -6px 0px 0px var(--shadow-color);
+    transition: right 0.3s ease;
+    z-index: 1200;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 3px solid var(--border-primary);
+}
+
+.mobile-menu-header h3 {
+    font-family: 'Jersey15', 'Courier New', monospace;
+    color: var(--border-primary);
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--border-primary);
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #764ba2;
+    transform: rotate(90deg);
+}
+
+.mobile-menu-items {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mobile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: var(--bg-primary);
+    border: 2px solid var(--border-primary);
+    color: var(--border-primary);
+    text-decoration: none;
+    font-family: 'Jersey15', 'Courier New', monospace;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+body.dark-mode .mobile-menu-item {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.mobile-menu-item:hover {
+    background: var(--border-primary);
+    color: white;
+    transform: translateX(-5px);
+}
+
+/* DARK MODE MOBILE MENU HOVER */
+body.dark-mode .mobile-menu-item:hover {
+    background: #667eea;
+    color: white;
+    transform: translateX(-5px);
+    box-shadow: 3px 3px 0px rgba(102, 126, 234, 0.3);
+}
+
+.mobile-menu-item.active {
+    background: var(--border-primary);
+    color: white;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Header Styles */
+header {
+    background: var(--bg-tertiary);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 3px solid var(--border-secondary);
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 0 0 3px var(--border-primary);
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+body.loaded header {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+h1 {
+    color: white;
+    font-size: 3.0rem;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 0px #333, 6px 6px 0px rgba(0,0,0,0.3);
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.3rem;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+    line-height: 1.6;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Card Styles */
+.card,
+.project-card,
+.game-card {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    border: 3px solid var(--border-primary);
+    box-shadow: 6px 6px 0px var(--shadow-color);
+    transition: transform 0.1s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover,
+.project-card:hover,
+.game-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0px var(--shadow-color);
+}
+
+/* DARK MODE CARD HOVER EFFECTS */
+body.dark-mode .card:hover,
+body.dark-mode .project-card:hover,
+body.dark-mode .game-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0px rgba(102, 126, 234, 0.4);
+}
+
+.card h2,
+.project-card h3,
+.game-card h3 {
+    color: var(--border-primary);
+    font-size: 1.6rem;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    font-weight: bold;
+    text-shadow: 2px 2px 0px rgba(102, 126, 234, 0.2);
+    line-height: 1.4;
+    margin-bottom: 18px;
+}
+
+.card p,
+.project-card p,
+.game-card p {
+    color: var(--text-secondary);
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    font-size: 1.0rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Button Styles */
+.btn {
+    background: var(--border-primary);
+    color: white;
+    border: 3px solid var(--border-secondary);
+    padding: 15px 25px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    font-weight: bold;
+    transition: all 0.1s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 3px 3px 0px #333;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+.btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px #333;
+    background: #764ba2;
+}
+
+.btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px #333;
+}
+
+/* DARK MODE BUTTON HOVER EFFECTS */
+body.dark-mode .btn:hover {
+    background: #764ba2;
+    box-shadow: 5px 5px 0px rgba(102, 126, 234, 0.5);
+    transform: translate(-2px, -2px);
+}
+
+body.dark-mode .btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px rgba(102, 126, 234, 0.5);
+}
+
+.btn-back {
+    margin: 20px auto;
+    display: block;
+    width: fit-content;
+    background: #764ba2;
+}
+
+.btn-back:hover {
+    background: var(--border-primary);
+}
+
+/* DARK MODE BACK BUTTON */
+body.dark-mode .btn-back:hover {
+    background: #667eea;
+    box-shadow: 5px 5px 0px rgba(102, 126, 234, 0.5);
+}
+
+/* Project Status Badges */
+.project-status {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 16px;
+    border: 2px solid #333;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 18px;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+    line-height: 1.4;
+}
+
+.status-development {
+    background: #ffd93d;
+    color: #b8860b;
+}
+
+.status-released {
+    background: #43e97b;
+    color: #2d7c47;
+}
+
+.status-planned {
+    background: #f093fb;
+    color: #a456a4;
+}
+
+/* Platform Badges */
+.platform-badge {
+    display: inline-block;
+    background: var(--border-primary);
+    color: white;
+    padding: 4px 12px;
+    border: 2px solid #333;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+}
+
+/* Content Sections */
+.content-section,
+.resume-section,
+.profile-section,
+.contact-info-section {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    border: 3px solid var(--border-primary);
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 6px 6px 0px var(--shadow-color);
+    text-align: center;
+    color: var(--text-primary);
+}
+
+/* Game sections dark mode support */
+.game-info,
+.platform-section {
+    background: var(--bg-primary);
+    border-color: var(--border-primary);
+}
+
+body.dark-mode .game-info,
+body.dark-mode .platform-section {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+/* Skills dark mode support */
+.skill-item {
+    background: #f0f0f0;
+    border-color: var(--border-primary);
+}
+
+body.dark-mode .skill-item {
+    background: rgba(102, 126, 234, 0.1);
+    color: var(--text-primary);
+}
+
+body.dark-mode .skill-item:hover {
+    background: var(--border-primary);
+    color: white;
+}
+
+/* Contact items dark mode support */
+.contact-item {
+    background: #f8f8f8;
+    color: var(--text-primary);
+}
+
+body.dark-mode .contact-item {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+body.dark-mode .contact-item:hover {
+    background: rgba(102, 126, 234, 0.2);
+    color: var(--text-primary);
+}
+
+/* Footer */
+footer {
+    background: var(--bg-tertiary);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 3px solid var(--border-secondary);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 0 0 3px var(--border-primary);
+    font-family: 'Jersey15', 'Courier New', monospace;
+    margin-top: 40px;
+}
+
+/* Heart Animation */
+.floating-image {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 1300;
+    transition: all 2s ease-out;
+    image-rendering: pixelated;
+}
+
+.floating-image.animate {
+    opacity: 0;
+    transform: translateY(-100px) scale(1.2);
+}
+
+.heart-clickable {
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.heart-clickable:hover {
+    transform: scale(1.1);
+}
+
+/* Toast Messages */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #013e16;
+    color: white;
+    padding: 12px 24px;
+    border: 3px solid #333;
+    border-radius: 16px;
+    font-family: 'Jersey15', 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+    z-index: 1400;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+.toast.fade-out {
+    opacity: 0;
+}
+
+/* Lists */
+ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* ==========================================
+   SMOOTH LOADING ANIMATIONS
+   ========================================== */
+
+/* Initial states for elements */
+.container > *:not(header),
+.main-content > *,
+.projects-grid > *,
+.games-grid > *,
+.contact-content > *,
+.resume-section {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Loaded states with staggered animations */
+body.loaded .container > *:not(header),
+body.loaded .main-content > *,
+body.loaded .projects-grid > *,
+body.loaded .games-grid > *,
+body.loaded .contact-content > *,
+body.loaded .resume-section {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Stagger the animations */
+body.loaded .container > *:nth-child(1) { transition-delay: 0.1s; }
+body.loaded .container > *:nth-child(2) { transition-delay: 0.2s; }
+body.loaded .container > *:nth-child(3) { transition-delay: 0.3s; }
+body.loaded .container > *:nth-child(4) { transition-delay: 0.4s; }
+body.loaded .container > *:nth-child(5) { transition-delay: 0.5s; }
+
+body.loaded .main-content > *:nth-child(1),
+body.loaded .projects-grid > *:nth-child(1),
+body.loaded .games-grid > *:nth-child(1) { transition-delay: 0.2s; }
+
+body.loaded .main-content > *:nth-child(2),
+body.loaded .projects-grid > *:nth-child(2),
+body.loaded .games-grid > *:nth-child(2) { transition-delay: 0.3s; }
+
+body.loaded .main-content > *:nth-child(3),
+body.loaded .projects-grid > *:nth-child(3),
+body.loaded .games-grid > *:nth-child(3) { transition-delay: 0.4s; }
+
+body.loaded .main-content > *:nth-child(4),
+body.loaded .projects-grid > *:nth-child(4),
+body.loaded .games-grid > *:nth-child(4) { transition-delay: 0.5s; }
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding-top: 80px;
+        font-size: 12px;
+    }
+    
+    .navbar {
+        width: calc(100% - 20px);
+        top: 10px;
+    }
+    
+    .navbar-container {
+        grid-template-columns: 1fr auto auto;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    .navbar-menu,
+    .navbar-menu-left,
+    .navbar-menu-right {
+        display: none;
+    }
+    
+    .dark-mode-toggle {
+        right: 70px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .toggle-icon {
+        font-size: 1.2rem;
+    }
+    
+    .navbar-mobile-toggle {
+        display: flex;
+    }
+    
+    .navbar-brand {
+        font-size: 1.1rem;
+        justify-self: start;
+        line-height: 1.2;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    header {
+        padding: 20px;
+    }
+    
+    .card h2,
+    .project-card h3,
+    .game-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .card p,
+    .project-card p,
+    .game-card p {
+        font-size: 0.7rem;
+    }
+    
+    .btn {
+        font-size: 0.7rem;
+        padding: 12px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 11px;
+    }
+    
+    .navbar-brand {
+        font-size: 0.9rem;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    .subtitle {
+        font-size: 0.8rem;
+    }
+    
+    .card h2,
+    .project-card h3,
+    .game-card h3 {
+        font-size: 1rem;
+    }
+    
+    .card p,
+    .project-card p,
+    .game-card p {
+        font-size: 0.65rem;
+    }
+    
+    .btn {
+        font-size: 0.65rem;
+        padding: 10px 16px;
+    }
+}
+
+/* DARK MODE SPECIFIC FIXES */
+body.dark-mode .resume-section h2,
+body.dark-mode .resume-section h3 {
+    color: var(--border-primary);
+}
+
+body.dark-mode .job-title,
+body.dark-mode .job-date {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .company-name {
+    color: var(--border-primary);
+}
+
+body.dark-mode .education-flowchart img {
+    background: var(--bg-primary);
+    border-color: var(--border-primary);
+}
+
+body.dark-mode .profile-name {
+    color: var(--border-primary);
+}
+
+body.dark-mode .profile-title {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .contact-info-section h2 {
+    color: var(--border-primary);
+}
+
+body.dark-mode .contact-label {
+    color: var(--border-primary);
+}
+
+body.dark-mode .contact-value {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .game-info h4,
+body.dark-mode .platform-section h4 {
+    color: var(--border-primary);
+}
+
+body.dark-mode p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode ul li {
+    color: var(--text-secondary);
+}
+
+/* ==========================================
+   ULTIMATE FONT OVERRIDE - EN GÜÇLÜ KURALLAR
+   ========================================== */
+
+/* FORCE PRESS START 2P ON ABSOLUTELY EVERYTHING */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, button, input, textarea, select {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    -webkit-font-smoothing: none !important;
+    -moz-osx-font-smoothing: unset !important;
+    text-rendering: optimizeSpeed !important;
+    font-smooth: never !important;
+    -webkit-font-feature-settings: normal !important;
+    font-feature-settings: normal !important;
+}
+
+/* DISABLE FONT SMOOTHING COMPLETELY */
+* {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    -webkit-font-smoothing: none !important;
+    -moz-osx-font-smoothing: unset !important;
+    text-rendering: optimizeSpeed !important;
+    font-smooth: never !important;
+    -webkit-font-feature-settings: normal !important;
+    font-feature-settings: normal !important;
+}
+
+/* ALL HEADINGS BOLD AND LARGER */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    font-weight: bold !important;
+    line-height: 1.4 !important;
+}
+
+h2 {
+    font-size: 1.6rem !important;
+}
+
+h3 {
+    font-size: 1.3rem !important;
+}
+
+h4 {
+    font-size: 1.0rem !important;
+    font-weight: bold !important;
+}
+
+/* ALL PARAGRAPHS AND TEXT LARGER */
+p {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    font-size: 1.0rem !important;
+    line-height: 1.6 !important;
+}
+
+/* ALL LIST ITEMS */
+li {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    font-size: 1.0rem !important;
+    line-height: 1.6 !important;
+}
+
+/* ALL SPANS AND LABELS */
+span, label {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    font-size: 1.0rem !important;
+}
+
+/* ALL STRONG ELEMENTS BOLD */
+strong {
+    font-weight: bold !important;
+}
+
+/* ALL BUTTONS BOLD AND LARGER */
+button, .btn, input[type="button"], input[type="submit"] {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    font-weight: bold !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+}
+
+/* ALL DIVS GET THE FONT */
+div {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+}
+
+/* FORM ELEMENTS */
+input, textarea, select {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+    font-size: 1.0rem !important;
+}
+
+/* TABLE ELEMENTS */
+table, th, td {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+}
+
+th {
+    font-weight: bold !important;
+    font-size: 1.0rem !important;
+}
+
+td {
+    font-size: 1.0rem !important;
+}
+
+/* ALL TEXT ELEMENTS */
+.contact-label, .contact-value, .job-title, .job-date, .company-name,
+.profile-name, .profile-title, .game-info p, .platform-section p,
+.skill-item, .project-status, .platform-badge, .mysterious-title,
+.mystery-text, .description, .coming-soon {
+    font-family: 'Press Start 2P', 'Courier New', monospace !important;
+}
+
+/* SPECIFIC OVERRIDES FOR DIFFERENT ELEMENTS */
+.contact-label {
+    font-size: 1.1rem !important;
+    font-weight: bold !important;
+}
+
+.contact-value {
+    font-size: 0.9rem !important;
+}
+
+.job-title {
+    font-size: 1.0rem !important;
+}
+
+.job-date {
+    font-size: 0.9rem !important;
+}
+
+.company-name {
+    font-size: 1.1rem !important;
+    font-weight: bold !important;
+}
+
+.profile-name {
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+}
+
+.profile-title {
+    font-size: 1.1rem !important;
+}
+
+.skill-item {
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
+}
+
+.project-status {
+    font-size: 1.0rem !important;
+    font-weight: bold !important;
+}
+
+.platform-badge {
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
+}
+
+/* ==========================================
+   DARK MODE ACTIVE PAGE FIX - EN SONUNDA
+   ========================================== */
+body.dark-mode .navbar-item.active {
+    background-color: #764ba2 !important;
+    background-image: none !important;
+    background: #764ba2 !important;
+    color: white !important;
+    box-shadow: inset 3px 3px 0px rgba(0,0,0,0.5) !important;
+    border: 2px solid #667eea !important;
+    transform: translateY(-1px) !important;
+}
+
+body.dark-mode .navbar-item.active:hover {
+    background: #764ba2 !important;
+    background-color: #764ba2 !important;
+}
+
+body.dark-mode .mobile-menu-item.active {
+    background: #764ba2 !important;
+    background-color: #764ba2 !important;
+    color: white !important;
+}
+
+/* ==========================================
+   ULTIMATE FONT FIX - EN SON KURAL
+   ========================================== */
+
+/* JavaScript benzeri zorla uygulama */
+body *, 
+body *::before, 
+body *::after,
+html *, 
+html *::before, 
+html *::after {
+    font-family: 'Press Start 2P', monospace !important;
+    -webkit-font-smoothing: none !important;
+    -moz-osx-font-smoothing: unset !important;
+    text-rendering: optimizeSpeed !important;
+    font-smooth: never !important;
+}
+
+/* Tüm sayfalarda çalışsın */
+[class*="container"] *,
+[class*="section"] *,
+[class*="card"] *,
+[class*="item"] * {
+    font-family: 'Press Start 2P', monospace !important;
+    -webkit-font-smoothing: none !important;
+    -moz-osx-font-smoothing: unset !important;
+}
+
+/* Sayfa yüklendikten sonra da uygulan */
+body.loaded * {
+    font-family: 'Press Start 2P', monospace !important;
+
+    .navbar-brand {
+    font-size: 2.5rem !important; /* BÜYÜK BOYUT */
+    font-weight: bold !important;
+    line-height: 1.2 !important;
+    letter-spacing: 2px !important;
+}
+
+.brand-text {
+    font-size: inherit !important;
+    font-weight: inherit !important;
+}
+
+/* Mobile responsive - EN SON */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 2.2rem !important; /* Mobile'da daha küçük ama hala büyük */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 1.8rem !important; /* Küçük mobile'da da büyük */
+    }
+}
+
+/* ADD THESE STYLES TO YOUR EXISTING main.css */
+
+/* ==========================================
+   BROWSER NAVIGATION FIXES
+   ========================================== */
+
+/* Ensure body always shows content on cache load */
+body {
+    opacity: 1 !important; /* Force visibility */
+    transition: opacity 0.3s ease;
+}
+
+/* Only hide during initial load, not cache load */
+body:not(.loaded):not(.cache-loaded) {
+    opacity: 0;
+}
+
+/* Ensure elements are visible when page loads from cache */
+body.loaded,
+body.cache-loaded {
+    opacity: 1 !important;
+}
+
+/* Fix for elements not showing on browser back */
+.container,
+.navbar,
+header,
+footer {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Loading spinner should not interfere with cached pages */
+.loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 3px solid var(--border-primary);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Don't block interactions */
+}
+
+/* Hide spinner immediately on loaded or cached pages */
+body.loaded .loading-spinner,
+body.cache-loaded .loading-spinner {
+    opacity: 0 !important;
+    display: none !important;
+}
+
+/* Ensure navigation is always visible */
+.navbar {
+    opacity: 1 !important;
+    transform: translateX(-50%) translateY(0) !important;
+    visibility: visible !important;
+}
+
+/* Fix for mobile menu state on browser back */
+.mobile-menu:not(.active) {
+    right: -300px;
+}
+
+.mobile-menu-overlay:not(.active) {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Ensure all cards and content are visible */
+.card,
+.project-card,
+.game-card,
+.resume-section,
+.content-section,
+.contact-content > * {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    visibility: visible !important;
+}
+
+/* Force visibility for critical elements */
+header,
+.main-content,
+.projects-grid,
+.games-grid,
+footer {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ==========================================
+   ANIMATION OVERRIDES FOR CACHED PAGES
+   ========================================== */
+
+/* Skip animations on cached page loads */
+body.cache-loaded * {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+}
+
+/* Reset animations after cache load */
+body.cache-loaded.animations-enabled * {
+    animation-duration: initial;
+    transition-duration: initial;
+}
+
+/* ==========================================
+   FAILSAFE VISIBILITY RULES
+   ========================================== */
+
+/* These rules ensure content is always visible regardless of JS state */
+@media (max-width: 768px) {
+    body {
+        opacity: 1 !important;
+    }
+    
+    .container {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+/* Backup visibility for slow connections */
+@media (prefers-reduced-motion: reduce) {
+    body {
+        opacity: 1 !important;
+    }
+    
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+}

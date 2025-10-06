@@ -1,0 +1,214 @@
+/* ==========================================
+   ÖZGEÇMİŞ SAYFASI ÖZEL STİLLER
+   ========================================== */
+
+/* Resume Container */
+.container {
+    max-width: 900px;
+}
+
+/* Resume Section */
+.resume-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    border: 3px solid #667eea;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+    text-align: left;
+}
+
+/* DARK MODE OVERRIDE FOR RESUME SECTIONS */
+body.dark-mode .resume-section {
+    background: rgba(22, 33, 62, 0.95) !important;
+    color: #e8e8e8 !important;
+}
+
+.resume-section h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-shadow: 2px 2px 0px rgba(102, 126, 234, 0.2);
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.resume-section h3 {
+    color: #764ba2;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+/* DARK MODE OVERRIDE FOR HEADINGS */
+body.dark-mode .resume-section h3 {
+    color: #667eea !important;
+}
+
+.job-title {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+/* DARK MODE OVERRIDE FOR JOB TITLES */
+body.dark-mode .job-title {
+    color: #b8b8b8 !important;
+}
+
+.job-date {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* DARK MODE OVERRIDE FOR JOB DATES */
+body.dark-mode .job-date {
+    color: #b8b8b8 !important;
+}
+
+.company-name {
+    color: #764ba2;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* DARK MODE OVERRIDE FOR COMPANY NAMES */
+body.dark-mode .company-name {
+    color: #667eea !important;
+}
+
+/* Education Flowchart SVG */
+.education-flowchart {
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.education-flowchart img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #667eea;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    min-height: 350px;
+    object-fit: contain;
+}
+
+/* DARK MODE OVERRIDE FOR EDUCATION FLOWCHART */
+body.dark-mode .education-flowchart img {
+    background: rgba(22, 33, 62, 0.95) !important;
+}
+
+/* Skills Grid - FIX UYGULANDI */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.skill-item {
+    background: #f0f0f0;
+    border: 2px solid #667eea;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    cursor: default;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* DARK MODE OVERRIDE FOR SKILLS */
+body.dark-mode .skill-item {
+    background: rgba(102, 126, 234, 0.1) !important;
+    color: #e8e8e8 !important;
+}
+
+/* Uzun metinli skill'ler için özel sıralama */
+.skill-item:nth-child(5) { order: 9; }  /* Network Administration */
+.skill-item:nth-child(8) { order: 10; } /* Game Design → yanına */
+.skill-item:nth-child(9) { order: 11; } /* Technical Support */
+.skill-item:nth-child(10) { order: 12; } /* Project Management */
+
+/* Hover efekti var ama tıklanamaz - FIX UYGULANDI */
+.skill-item:hover {
+    background: #667eea;
+    color: white;
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px #333;
+}
+
+/* DARK MODE SKILL HOVER EFFECTS */
+body.dark-mode .skill-item:hover {
+    background: #667eea !important;
+    color: white !important;
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px rgba(102, 126, 234, 0.3);
+}
+
+/* TEXT ALIGNMENT AND SPACING FIXES */
+.resume-section p {
+    text-align: left;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.resume-section ul {
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    padding-left: 0;
+}
+
+.resume-section ul li {
+    text-align: left;
+    margin-bottom: 8px;
+    line-height: 1.5;
+    list-style-type: disc;
+}
+
+.resume-section .job-title,
+.resume-section .job-date,
+.resume-section .company-name {
+    text-align: left;
+}
+
+/* DARK MODE TEXT OVERRIDES */
+body.dark-mode .resume-section p {
+    color: #b8b8b8 !important;
+}
+
+body.dark-mode .resume-section ul li {
+    color: #b8b8b8 !important;
+}
+
+body.dark-mode .resume-section strong {
+    color: #e8e8e8 !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .skill-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .education-flowchart img {
+        padding: 15px;
+        border-width: 2px;
+        box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+    }
+}
+
+@media (max-width: 480px) {
+    .education-flowchart img {
+        padding: 10px;
+    }
+}
