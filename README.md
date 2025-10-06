@@ -16,9 +16,9 @@ I'm not a full stack web dev bro
 
 ## 🛠️ Tech Stack
 
-- **HTML5** - Structure
-- **CSS3** - Styling with custom retro theme
-- **JavaScript** - Interactive features
+- **React + Vite** - Component-driven SPA foundation
+- **React Router** - Page routing with smooth transitions
+- **CSS3** - Styling with the custom retro theme and responsive refinements
 
 ## 🎯 About
 

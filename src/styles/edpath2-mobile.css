@@ -1,0 +1,20 @@
+body.edpath2-mobile::before {
+  content: '';
+  position: fixed;
+  bottom: clamp(-60px, -10vw, -10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(220px, 60vw, 340px);
+  height: clamp(220px, 60vw, 340px);
+  background: url('/images/edpath2-mobile.svg') no-repeat center/contain;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.edpath2-mobile .app-shell,
+body.edpath2-mobile .navbar,
+body.edpath2-mobile .container {
+  position: relative;
+  z-index: 1;
+}
