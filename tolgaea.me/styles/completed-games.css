@@ -98,6 +98,20 @@ body.dark-mode .game-thumb {
     margin-top: auto;
 }
 
+.release-date {
+    display: block;
+    margin-top: 12px;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    color: #4a4a4a;
+}
+
+body.dark-mode .release-date {
+    color: #d0d4ff;
+}
+
 /* Placeholder Stilleri - YATAY VE KOYU RENK - UPDATED */
 .add-game-placeholder {
     background: rgba(255, 255, 255, 0.5);
